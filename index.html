@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#07111f">
 <meta name="description" content="Karayel Yazılım 2026 - Modern ve kullanışlı dijital uygulamalar.">
-
 <title>Karayel Yazılım 2026</title>
 
 <style>
@@ -32,21 +31,13 @@ body.light{
     color:#0f172a;
 }
 
-a{
-    color:inherit;
-}
-
-/* =========================
-   DEĞİŞKENLER
-========================= */
-
 :root{
     --bg:#060d18;
     --bg2:#0b1627;
     --card:#101d30;
     --card2:#13243a;
     --border:#203650;
-    --text:#ffffff;
+    --text:#fff;
     --muted:#94a3b8;
     --blue:#0ea5e9;
     --blue2:#38bdf8;
@@ -56,9 +47,7 @@ a{
     --red:#ef4444;
 }
 
-/* =========================
-   ÜST MENÜ
-========================= */
+/* NAVBAR */
 
 .navbar{
     position:fixed;
@@ -117,14 +106,14 @@ a{
     color:#cbd5e1;
     font-size:14px;
     font-weight:600;
-    transition:.2s;
 }
 
 .nav-links a:hover{
     color:var(--blue2);
 }
 
-.theme-btn{
+.theme-btn,
+.menu-btn{
     border:1px solid var(--border);
     background:#101d30;
     color:white;
@@ -137,19 +126,12 @@ a{
 
 .menu-btn{
     display:none;
-    border:1px solid var(--border);
-    background:#101d30;
-    color:white;
     width:42px;
     height:42px;
-    border-radius:11px;
-    cursor:pointer;
     font-size:22px;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
     min-height:760px;
@@ -166,8 +148,6 @@ a{
     max-width:1100px;
     margin:auto;
     text-align:center;
-    position:relative;
-    z-index:2;
 }
 
 .badge{
@@ -236,18 +216,12 @@ a{
 
 .btn-primary:hover{
     transform:translateY(-3px);
-    box-shadow:0 15px 35px rgba(14,165,233,.3);
 }
 
 .btn-secondary{
     background:#101d30;
     border-color:#2a405c;
     color:#e2e8f0;
-}
-
-.btn-secondary:hover{
-    transform:translateY(-3px);
-    border-color:#38bdf8;
 }
 
 .hero-stats{
@@ -278,9 +252,7 @@ a{
     font-size:13px;
 }
 
-/* =========================
-   GENEL BÖLÜM
-========================= */
+/* SECTION */
 
 .section{
     max-width:1200px;
@@ -309,12 +281,9 @@ a{
 
 .section-title p{
     color:var(--muted);
-    font-size:16px;
 }
 
-/* =========================
-   ARAMA
-========================= */
+/* SEARCH */
 
 .search-area{
     max-width:700px;
@@ -333,11 +302,6 @@ a{
     font-size:15px;
 }
 
-.search-area input:focus{
-    border-color:var(--blue);
-    box-shadow:0 0 0 3px rgba(14,165,233,.1);
-}
-
 .search-icon{
     position:absolute;
     left:18px;
@@ -346,9 +310,7 @@ a{
     font-size:20px;
 }
 
-/* =========================
-   UYGULAMA KARTLARI
-========================= */
+/* APPS */
 
 .apps{
     display:grid;
@@ -364,17 +326,6 @@ a{
     border:1px solid #1e334d;
     overflow:hidden;
     transition:.3s;
-}
-
-.app-card::before{
-    content:"";
-    position:absolute;
-    width:180px;
-    height:180px;
-    right:-80px;
-    top:-80px;
-    background:rgba(14,165,233,.08);
-    border-radius:50%;
 }
 
 .app-card:hover{
@@ -406,9 +357,9 @@ a{
     border-radius:20px;
     font-size:11px;
     font-weight:900;
-    background:rgba(245,158,11,.12);
-    color:#fbbf24;
-    border:1px solid rgba(245,158,11,.2);
+    background:rgba(34,197,94,.12);
+    color:#4ade80;
+    border:1px solid rgba(34,197,94,.2);
 }
 
 .app-card h3{
@@ -440,18 +391,12 @@ a{
     text-decoration:none;
     font-size:13px;
     font-weight:bold;
+    cursor:pointer;
 }
 
 .app-btn:hover{
     border-color:#38bdf8;
 }
-
-.app-btn.disabled{
-    opacity:.55;
-    cursor:not-allowed;
-}
-
-/* KART RENKLERİ */
 
 .card-photo .app-icon{
     background:rgba(139,92,246,.13);
@@ -469,9 +414,7 @@ a{
     background:rgba(14,165,233,.13);
 }
 
-/* =========================
-   ÖZELLİKLER
-========================= */
+/* FEATURES */
 
 .features{
     background:#0a1422;
@@ -499,7 +442,6 @@ a{
 
 .feature h3{
     margin-bottom:9px;
-    font-size:19px;
 }
 
 .feature p{
@@ -508,9 +450,7 @@ a{
     font-size:14px;
 }
 
-/* =========================
-   HAKKIMIZDA
-========================= */
+/* ABOUT */
 
 .about-box{
     max-width:900px;
@@ -535,9 +475,7 @@ a{
     line-height:1.9;
 }
 
-/* =========================
-   İLETİŞİM
-========================= */
+/* CONTACT */
 
 .contact-box{
     max-width:750px;
@@ -565,9 +503,7 @@ a{
     margin-bottom:25px;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer{
     border-top:1px solid #16283d;
@@ -602,22 +538,9 @@ footer p{
 .footer-links a{
     color:#94a3b8;
     text-decoration:none;
-    font-size:13px;
 }
 
-.footer-links a:hover{
-    color:#38bdf8;
-}
-
-.copyright{
-    padding-top:20px;
-    border-top:1px solid #122235;
-    margin-top:20px;
-}
-
-/* =========================
-   YUKARI ÇIKIŞ
-========================= */
+/* TOP */
 
 #topBtn{
     position:fixed;
@@ -642,9 +565,7 @@ footer p{
     pointer-events:auto;
 }
 
-/* =========================
-   MOBİL MENÜ
-========================= */
+/* MOBILE MENU */
 
 .mobile-menu{
     display:none;
@@ -656,7 +577,6 @@ footer p{
     background:#0b1727;
     border:1px solid #203650;
     border-radius:16px;
-    box-shadow:0 20px 50px rgba(0,0,0,.35);
 }
 
 .mobile-menu.open{
@@ -671,14 +591,87 @@ footer p{
     border-radius:10px;
 }
 
-.mobile-menu a:hover{
-    background:#13243a;
-    color:#38bdf8;
+/* APP SCREEN */
+
+#uygulamaEkrani{
+    display:none;
+    min-height:100vh;
+    padding:110px 20px 60px;
+    background:
+        radial-gradient(circle at 20% 10%,rgba(14,165,233,.12),transparent 30%),
+        linear-gradient(180deg,#07111f,#060d18);
 }
 
-/* =========================
-   LIGHT MODE
-========================= */
+.app-screen-inner{
+    max-width:1100px;
+    margin:auto;
+}
+
+.back-btn{
+    margin-bottom:25px;
+}
+
+.app-screen-card{
+    background:#0e1b2d;
+    border:1px solid #203650;
+    border-radius:25px;
+    padding:45px;
+    min-height:500px;
+}
+
+.app-screen-header{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.big-app-icon{
+    width:80px;
+    height:80px;
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:42px;
+    background:#16283e;
+}
+
+.app-screen-header h1{
+    font-size:38px;
+}
+
+.app-screen-header p{
+    color:#94a3b8;
+    margin-top:7px;
+}
+
+.app-placeholder{
+    margin-top:25px;
+    padding:40px 20px;
+    text-align:center;
+    border:1px dashed #31506f;
+    border-radius:20px;
+    background:#0a1524;
+}
+
+.app-placeholder .big{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.app-placeholder h2{
+    margin-bottom:10px;
+}
+
+.app-placeholder p{
+    color:#94a3b8;
+    line-height:1.7;
+    max-width:650px;
+    margin:auto;
+}
+
+/* LIGHT */
 
 body.light .navbar{
     background:rgba(255,255,255,.9);
@@ -697,14 +690,10 @@ body.light .menu-btn{
 }
 
 body.light .hero{
-    background:
-        radial-gradient(circle at 15% 20%,rgba(14,165,233,.12),transparent 30%),
-        radial-gradient(circle at 85% 30%,rgba(139,92,246,.1),transparent 30%),
-        #f8fafc;
+    background:#f8fafc;
 }
 
 body.light .hero-description,
-body.light .stat span,
 body.light .section-title p,
 body.light .app-card p,
 body.light .feature p,
@@ -714,7 +703,7 @@ body.light .contact-box p{
 }
 
 body.light .stat{
-    background:rgba(255,255,255,.7);
+    background:white;
     border-color:#e2e8f0;
 }
 
@@ -725,14 +714,14 @@ body.light .stat strong{
 body.light .app-card,
 body.light .about-box,
 body.light .contact-box,
-body.light .feature{
+body.light .feature,
+body.light .app-screen-card{
     background:white;
     border-color:#dbe4ee;
 }
 
 body.light .features{
     background:#eef3f8;
-    border-color:#dbe4ee;
 }
 
 body.light .search-area input{
@@ -743,21 +732,26 @@ body.light .search-area input{
 
 body.light footer{
     background:#e8eef5;
-    border-color:#dbe4ee;
+}
+
+body.light #uygulamaEkrani{
+    background:#f8fafc;
+}
+
+body.light .app-placeholder{
+    background:#f8fafc;
+    border-color:#cbd5e1;
 }
 
 body.light .mobile-menu{
     background:white;
-    border-color:#dbe4ee;
 }
 
 body.light .mobile-menu a{
     color:#334155;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* RESPONSIVE */
 
 @media(max-width:850px){
 
@@ -772,10 +766,6 @@ body.light .mobile-menu a{
     .hero{
         min-height:auto;
         padding-top:135px;
-    }
-
-    .hero h1{
-        letter-spacing:-2px;
     }
 
     .apps{
@@ -819,10 +809,6 @@ body.light .mobile-menu a{
         margin-top:40px;
     }
 
-    .stat{
-        padding:17px;
-    }
-
     .section{
         padding:65px 16px;
     }
@@ -847,8 +833,16 @@ body.light .mobile-menu a{
         padding:35px 18px;
     }
 
-    .footer-links{
-        flex-wrap:wrap;
+    .app-screen-card{
+        padding:25px 18px;
+    }
+
+    .app-screen-header{
+        align-items:flex-start;
+    }
+
+    .app-screen-header h1{
+        font-size:27px;
     }
 }
 </style>
@@ -856,594 +850,546 @@ body.light .mobile-menu a{
 
 <body>
 
-<!-- =========================
-     MENÜ
-========================= -->
+<!-- NAVBAR -->
 
 <nav class="navbar">
 
-    <div class="nav-inner">
+<div class="nav-inner">
 
-        <a href="#anasayfa" class="logo">
-            <div class="logo-icon">K</div>
-            <div>
-                Karayel <span>Yazılım</span>
-                <small style="font-size:10px;color:#64748b;">2026</small>
-            </div>
-        </a>
+<a href="#anasayfa" class="logo" onclick="anaSayfayaDon()">
+<div class="logo-icon">K</div>
+<div>
+Karayel <span>Yazılım</span>
+<small style="font-size:10px;color:#64748b;">2026</small>
+</div>
+</a>
 
-        <div class="nav-links">
+<div class="nav-links">
 
-            <a href="#anasayfa">Ana Sayfa</a>
-            <a href="#uygulamalar">Uygulamalar</a>
-            <a href="#ozellikler">Özellikler</a>
-            <a href="#hakkimizda">Hakkımızda</a>
-            <a href="#iletisim">İletişim</a>
+<a href="#anasayfa" onclick="anaSayfayaDon()">Ana Sayfa</a>
+<a href="#uygulamalar" onclick="anaSayfayaDon()">Uygulamalar</a>
+<a href="#ozellikler" onclick="anaSayfayaDon()">Özellikler</a>
+<a href="#hakkimizda" onclick="anaSayfayaDon()">Hakkımızda</a>
+<a href="#iletisim" onclick="anaSayfayaDon()">İletişim</a>
 
-            <button class="theme-btn" onclick="temaDegistir()" title="Tema değiştir">
-                🌙
-            </button>
+<button class="theme-btn" onclick="temaDegistir()">🌙</button>
 
-        </div>
+</div>
 
-        <button class="menu-btn" onclick="mobilMenu()">
-            ☰
-        </button>
+<button class="menu-btn" onclick="mobilMenu()">☰</button>
 
-    </div>
+</div>
 
-    <div class="mobile-menu" id="mobileMenu">
+<div class="mobile-menu" id="mobileMenu">
 
-        <a href="#anasayfa" onclick="mobilMenu()">🏠 Ana Sayfa</a>
-        <a href="#uygulamalar" onclick="mobilMenu()">💻 Uygulamalar</a>
-        <a href="#ozellikler" onclick="mobilMenu()">✨ Özellikler</a>
-        <a href="#hakkimizda" onclick="mobilMenu()">ℹ️ Hakkımızda</a>
-        <a href="#iletisim" onclick="mobilMenu()">📞 İletişim</a>
+<a href="#anasayfa" onclick="anaSayfayaDon()">🏠 Ana Sayfa</a>
+<a href="#uygulamalar" onclick="anaSayfayaDon()">💻 Uygulamalar</a>
+<a href="#ozellikler" onclick="anaSayfayaDon()">✨ Özellikler</a>
+<a href="#hakkimizda" onclick="anaSayfayaDon()">ℹ️ Hakkımızda</a>
+<a href="#iletisim" onclick="anaSayfayaDon()">📞 İletişim</a>
 
-        <button
-            onclick="temaDegistir()"
-            style="width:100%;padding:12px;margin-top:5px;border-radius:10px;border:1px solid #29415d;background:#102038;color:white;">
-            🌙 Tema Değiştir
-        </button>
+<button onclick="temaDegistir()"
+style="width:100%;padding:12px;margin-top:5px;border-radius:10px;border:1px solid #29415d;background:#102038;color:white;">
+🌙 Tema Değiştir
+</button>
 
-    </div>
-
+</div>
 </nav>
 
 
-<!-- =========================
-     ANA SAYFA
-========================= -->
+<!-- ANA SAYFA -->
+
+<div id="anaSayfa">
 
 <section class="hero" id="anasayfa">
 
-    <div class="hero-content">
+<div class="hero-content">
 
-        <div class="badge">
-            🚀 Karayel Yazılım 2026
-        </div>
+<div class="badge">
+🚀 Karayel Yazılım 2026
+</div>
 
-        <h1>
-            Dijital dünyaya<br>
-            <span class="gradient-text">hoş geldiniz.</span>
-        </h1>
+<h1>
+Dijital dünyaya<br>
+<span class="gradient-text">hoş geldiniz.</span>
+</h1>
 
-        <p class="hero-description">
-            Günlük hayatı kolaylaştırmak için geliştirilen
-            modern, kullanışlı ve mobil uyumlu Karayel
-            uygulamalarını keşfedin.
-        </p>
+<p class="hero-description">
+Günlük hayatı kolaylaştırmak için geliştirilen
+modern, kullanışlı ve mobil uyumlu Karayel
+uygulamalarını keşfedin.
+</p>
 
-        <div class="hero-buttons">
+<div class="hero-buttons">
 
-            <a href="#uygulamalar" class="btn btn-primary">
-                🚀 Uygulamaları Keşfet
-            </a>
+<a href="#uygulamalar" class="btn btn-primary">
+🚀 Uygulamaları Keşfet
+</a>
 
-            <a href="#hakkimizda" class="btn btn-secondary">
-                ℹ️ Hakkımızda
-            </a>
+<a href="#hakkimizda" class="btn btn-secondary">
+ℹ️ Hakkımızda
+</a>
 
-        </div>
+</div>
 
-        <div class="hero-stats">
+<div class="hero-stats">
 
-            <div class="stat">
-                <strong>4+</strong>
-                <span>Uygulama Projesi</span>
-            </div>
+<div class="stat">
+<strong>4+</strong>
+<span>Uygulama Projesi</span>
+</div>
 
-            <div class="stat">
-                <strong>2026</strong>
-                <span>Yeni Nesil Projeler</span>
-            </div>
+<div class="stat">
+<strong>2026</strong>
+<span>Yeni Nesil Projeler</span>
+</div>
 
-            <div class="stat">
-                <strong>100%</strong>
-                <span>Mobil Uyumlu</span>
-            </div>
+<div class="stat">
+<strong>100%</strong>
+<span>Mobil Uyumlu</span>
+</div>
 
-        </div>
+</div>
 
-    </div>
-
+</div>
 </section>
 
 
-<!-- =========================
-     UYGULAMALAR
-========================= -->
+<!-- UYGULAMALAR -->
 
 <section class="section" id="uygulamalar">
 
-    <div class="section-title">
+<div class="section-title">
 
-        <div class="section-label">
-            Karayel Apps
-        </div>
+<div class="section-label">
+Karayel Apps
+</div>
 
-        <h2>Uygulamalarımız</h2>
+<h2>Uygulamalarımız</h2>
 
-        <p>
-            Karayel Yazılım tarafından geliştirilen
-            dijital uygulamalar.
-        </p>
+<p>
+Karayel Yazılım tarafından geliştirilen dijital uygulamalar.
+</p>
 
-    </div>
+</div>
 
+<div class="search-area">
 
-    <div class="search-area">
+<div class="search-icon">🔎</div>
 
-        <div class="search-icon">
-            🔎
-        </div>
+<input
+type="text"
+id="arama"
+placeholder="Uygulama ara..."
+oninput="uygulamaAra()"
+>
 
-        <input
-            type="text"
-            id="arama"
-            placeholder="Uygulama ara..."
-            oninput="uygulamaAra()"
-        >
+</div>
 
-    </div>
 
+<div class="apps" id="appList">
 
-    <div class="apps" id="appList">
 
+<!-- FOTOĞRAF -->
 
-        <!-- FOTOĞRAF EDİTÖRÜ -->
+<div class="app-card card-photo"
+data-name="fotoğraf editörü foto editör resim">
 
-        <div class="app-card card-photo" data-name="fotoğraf editörü foto editör resim">
+<div class="app-top">
 
-            <div class="app-top">
+<div class="app-icon">🖼️</div>
 
-                <div class="app-icon">
-                    🖼️
-                </div>
+<div class="status">
+AKTİF
+</div>
 
-                <div class="status">
-                    YAKINDA
-                </div>
+</div>
 
-            </div>
+<h3>
+Karayel Fotoğraf Editörü
+</h3>
 
-            <h3>
-                Karayel Fotoğraf Editörü
-            </h3>
+<p>
+Fotoğraflarınızı düzenleyin, filtreler uygulayın,
+yazılar ekleyin ve kendi görsellerinizi oluşturun.
+</p>
 
-            <p>
-                Fotoğraflarınızı düzenleyin, filtreler uygulayın,
-                yazılar ekleyin ve kendi görsellerinizi oluşturun.
-            </p>
+<div class="app-actions">
 
-            <div class="app-actions">
+<button class="app-btn"
+onclick="uygulamaAc('foto')">
+🖼️ Uygulamayı Aç
+</button>
 
-                <a href="#" class="app-btn disabled"
-                   onclick="return false;">
-                    🖼️ Yakında
-                </a>
+</div>
 
-            </div>
+</div>
 
-        </div>
 
+<!-- EXCEL -->
 
-        <!-- EXCEL -->
+<div class="app-card card-excel"
+data-name="excel tablo hesaplama karayel excel">
 
-        <div class="app-card card-excel" data-name="excel tablo hesaplama karayel excel">
+<div class="app-top">
 
-            <div class="app-top">
+<div class="app-icon">📊</div>
 
-                <div class="app-icon">
-                    📊
-                </div>
+<div class="status">
+AKTİF
+</div>
 
-                <div class="status">
-                    YAKINDA
-                </div>
+</div>
 
-            </div>
+<h3>
+Karayel Excel 2026
+</h3>
 
-            <h3>
-                Karayel Excel 2026
-            </h3>
+<p>
+Tablolar oluşturun, hesaplamalar yapın,
+verilerinizi düzenleyin ve çalışmalarınızı kolayca yönetin.
+</p>
 
-            <p>
-                Tablolar oluşturun, hesaplamalar yapın,
-                verilerinizi düzenleyin ve çalışmalarınızı kolayca yönetin.
-            </p>
+<div class="app-actions">
 
-            <div class="app-actions">
+<button class="app-btn"
+onclick="uygulamaAc('excel')">
+📊 Uygulamayı Aç
+</button>
 
-                <a href="#" class="app-btn disabled"
-                   onclick="return false;">
-                    📊 Yakında
-                </a>
+</div>
 
-            </div>
+</div>
 
-        </div>
 
+<!-- NOT DEFTERİ -->
 
-        <!-- NOT DEFTERİ -->
+<div class="app-card card-notes"
+data-name="not defteri notepad notlar yazı">
 
-        <div class="app-card card-notes" data-name="not defteri notepad notlar yazı">
+<div class="app-top">
 
-            <div class="app-top">
+<div class="app-icon">📝</div>
 
-                <div class="app-icon">
-                    📝
-                </div>
+<div class="status">
+AKTİF
+</div>
 
-                <div class="status">
-                    YAKINDA
-                </div>
+</div>
 
-            </div>
+<h3>
+Karayel Not Defteri
+</h3>
 
-            <h3>
-                Karayel Not Defteri
-            </h3>
+<p>
+Notlarınızı oluşturun, düzenleyin,
+kaydedin ve önemli bilgilerinizi kolayca yönetin.
+</p>
 
-            <p>
-                Notlarınızı oluşturun, düzenleyin,
-                kaydedin ve önemli bilgilerinizi kolayca yönetin.
-            </p>
+<div class="app-actions">
 
-            <div class="app-actions">
+<button class="app-btn"
+onclick="uygulamaAc('not')">
+📝 Uygulamayı Aç
+</button>
 
-                <a href="#" class="app-btn disabled"
-                   onclick="return false;">
-                    📝 Yakında
-                </a>
+</div>
 
-            </div>
+</div>
 
-        </div>
 
+<!-- ZİKİR -->
 
-        <!-- ZİKİRMATİK -->
+<div class="app-card card-zikir"
+data-name="zikirmatik zikir dua esma">
 
-        <div class="app-card card-zikir" data-name="zikirmatik zikir dua esma">
+<div class="app-top">
 
-            <div class="app-top">
+<div class="app-icon">📿</div>
 
-                <div class="app-icon">
-                    📿
-                </div>
+<div class="status">
+AKTİF
+</div>
 
-                <div class="status">
-                    YAKINDA
-                </div>
+</div>
 
-            </div>
+<h3>
+Karayel Zikirmatik
+</h3>
 
-            <h3>
-                Karayel Zikirmatik
-            </h3>
+<p>
+Zikirlerinizi takip edin, sayaçlarınızı kullanın,
+kayıtlarınızı saklayın ve günlük kullanımınızı kolaylaştırın.
+</p>
 
-            <p>
-                Zikirlerinizi takip edin, sayaçlarınızı kullanın,
-                kayıtlarınızı saklayın ve günlük kullanımınızı kolaylaştırın.
-            </p>
+<div class="app-actions">
 
-            <div class="app-actions">
+<button class="app-btn"
+onclick="uygulamaAc('zikir')">
+📿 Uygulamayı Aç
+</button>
 
-                <a href="#" class="app-btn disabled"
-                   onclick="return false;">
-                    📿 Yakında
-                </a>
+</div>
 
-            </div>
+</div>
 
-        </div>
-
-
-    </div>
-
+</div>
 </section>
 
 
-<!-- =========================
-     ÖZELLİKLER
-========================= -->
+<!-- ÖZELLİKLER -->
 
 <section class="features" id="ozellikler">
 
-    <div class="section">
+<div class="section">
 
-        <div class="section-title">
+<div class="section-title">
 
-            <div class="section-label">
-                Neden Karayel?
-            </div>
+<div class="section-label">
+Neden Karayel?
+</div>
 
-            <h2>Modern ve Kullanışlı</h2>
+<h2>Modern ve Kullanışlı</h2>
 
-            <p>
-                Uygulamalarımızı herkesin kolayca kullanabilmesi için tasarlıyoruz.
-            </p>
+<p>
+Uygulamalarımızı herkesin kolayca kullanabilmesi için tasarlıyoruz.
+</p>
 
-        </div>
+</div>
 
+<div class="feature-grid">
 
-        <div class="feature-grid">
+<div class="feature">
+<div class="feature-icon">📱</div>
+<h3>Mobil Uyumlu</h3>
+<p>
+Telefon, tablet ve bilgisayarlarda rahat kullanım için responsive tasarım.
+</p>
+</div>
 
+<div class="feature">
+<div class="feature-icon">⚡</div>
+<h3>Hızlı</h3>
+<p>
+Gereksiz yüklerden arındırılmış, hızlı ve akıcı kullanıcı deneyimi.
+</p>
+</div>
 
-            <div class="feature">
+<div class="feature">
+<div class="feature-icon">🎨</div>
+<h3>Modern Tasarım</h3>
+<p>
+Güncel tasarım anlayışıyla hazırlanmış sade ve profesyonel arayüzler.
+</p>
+</div>
 
-                <div class="feature-icon">
-                    📱
-                </div>
+<div class="feature">
+<div class="feature-icon">🔒</div>
+<h3>Kullanıcı Odaklı</h3>
+<p>
+Kolay anlaşılır menüler ve kullanıcı dostu kontroller.
+</p>
+</div>
 
-                <h3>
-                    Mobil Uyumlu
-                </h3>
+<div class="feature">
+<div class="feature-icon">🌙</div>
+<h3>Koyu / Açık Tema</h3>
+<p>
+Göz zevkinize göre koyu veya açık tema arasında geçiş yapabilirsiniz.
+</p>
+</div>
 
-                <p>
-                    Telefon, tablet ve bilgisayarlarda
-                    rahat kullanım için responsive tasarım.
-                </p>
+<div class="feature">
+<div class="feature-icon">🚀</div>
+<h3>Sürekli Gelişim</h3>
+<p>
+Yeni özellikler ve yeni uygulamalar eklenmeye devam edecek.
+</p>
+</div>
 
-            </div>
-
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    ⚡
-                </div>
-
-                <h3>
-                    Hızlı
-                </h3>
-
-                <p>
-                    Gereksiz yüklerden arındırılmış,
-                    hızlı ve akıcı kullanıcı deneyimi.
-                </p>
-
-            </div>
-
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    🎨
-                </div>
-
-                <h3>
-                    Modern Tasarım
-                </h3>
-
-                <p>
-                    Güncel tasarım anlayışıyla hazırlanmış
-                    sade ve profesyonel arayüzler.
-                </p>
-
-            </div>
-
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    🔒
-                </div>
-
-                <h3>
-                    Kullanıcı Odaklı
-                </h3>
-
-                <p>
-                    Kolay anlaşılır menüler ve
-                    kullanıcı dostu kontroller.
-                </p>
-
-            </div>
-
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    🌙
-                </div>
-
-                <h3>
-                    Koyu / Açık Tema
-                </h3>
-
-                <p>
-                    Göz zevkinize göre koyu veya
-                    açık tema arasında geçiş yapabilirsiniz.
-                </p>
-
-            </div>
-
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    🚀
-                </div>
-
-                <h3>
-                    Sürekli Gelişim
-                </h3>
-
-                <p>
-                    Yeni özellikler ve yeni uygulamalar
-                    eklenmeye devam edecek.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
+</div>
+</div>
 </section>
 
 
-<!-- =========================
-     HAKKIMIZDA
-========================= -->
+<!-- HAKKIMIZDA -->
 
 <section class="section" id="hakkimizda">
 
-    <div class="about-box">
+<div class="about-box">
 
-        <div class="section-label">
-            Hakkımızda
-        </div>
+<div class="section-label">
+Hakkımızda
+</div>
 
-        <h2>
-            Karayel Yazılım 2026
-        </h2>
+<h2>
+Karayel Yazılım 2026
+</h2>
 
-        <p>
-            Karayel Yazılım; günlük hayatta kullanılabilecek
-            pratik, modern ve kullanıcı dostu dijital uygulamalar
-            geliştirmek amacıyla oluşturulan bir yazılım platformudur.
-        </p>
+<p>
+Karayel Yazılım; günlük hayatta kullanılabilecek
+pratik, modern ve kullanıcı dostu dijital uygulamalar
+geliştirmek amacıyla oluşturulan bir yazılım platformudur.
+</p>
 
-        <p style="margin-top:15px;">
-            Amacımız teknolojiyi daha anlaşılır,
-            daha kolay ve herkes için daha ulaşılabilir hale getirmektir.
-        </p>
+<p style="margin-top:15px;">
+Amacımız teknolojiyi daha anlaşılır,
+daha kolay ve herkes için daha ulaşılabilir hale getirmektir.
+</p>
 
-    </div>
-
+</div>
 </section>
 
 
-<!-- =========================
-     İLETİŞİM
-========================= -->
+<!-- İLETİŞİM -->
 
 <section class="section" id="iletisim">
 
-    <div class="section-title">
+<div class="section-title">
 
-        <div class="section-label">
-            İletişim
-        </div>
+<div class="section-label">
+İletişim
+</div>
 
-        <h2>
-            Bizimle İletişime Geçin
-        </h2>
+<h2>
+Bizimle İletişime Geçin
+</h2>
 
-        <p>
-            Görüş, öneri veya proje fikirlerinizi paylaşabilirsiniz.
-        </p>
+<p>
+Görüş, öneri veya proje fikirlerinizi paylaşabilirsiniz.
+</p>
 
-    </div>
+</div>
 
+<div class="contact-box">
 
-    <div class="contact-box">
+<div class="contact-icon">
+📩
+</div>
 
-        <div class="contact-icon">
-            📩
-        </div>
+<h3>
+Karayel Yazılım
+</h3>
 
-        <h3>
-            Karayel Yazılım
-        </h3>
+<p>
+Yeni uygulamalar, geliştirme fikirleri
+ve diğer konular için bizimle iletişime geçebilirsiniz.
+</p>
 
-        <p>
-            Yeni uygulamalar, geliştirme fikirleri
-            ve diğer konular için bizimle iletişime geçebilirsiniz.
-        </p>
+<a
+href="mailto:iletisim@karayelyazilim.com"
+class="btn btn-primary">
+📧 E-posta Gönder
+</a>
 
-        <!-- Buradaki e-posta adresini daha sonra değiştirebilirsin -->
-
-        <a
-            href="mailto:iletisim@karayelyazilim.com"
-            class="btn btn-primary">
-            📧 E-posta Gönder
-        </a>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer>
 
-    <div class="footer-logo">
-        Karayel <span>Yazılım</span> 2026
-    </div>
+<div class="footer-logo">
+Karayel <span>Yazılım</span> 2026
+</div>
 
-    <p>
-        Modern dijital uygulamalar geliştirme platformu.
-    </p>
+<p>
+Modern dijital uygulamalar geliştirme platformu.
+</p>
 
-    <div class="footer-links">
+<div class="footer-links">
 
-        <a href="#anasayfa">
-            Ana Sayfa
-        </a>
+<a href="#anasayfa">Ana Sayfa</a>
+<a href="#uygulamalar">Uygulamalar</a>
+<a href="#hakkimizda">Hakkımızda</a>
+<a href="#iletisim">İletişim</a>
 
-        <a href="#uygulamalar">
-            Uygulamalar
-        </a>
+</div>
 
-        <a href="#hakkimizda">
-            Hakkımızda
-        </a>
+<div class="copyright">
 
-        <a href="#iletisim">
-            İletişim
-        </a>
+<p>
+© 2026 Karayel Yazılım. Tüm hakları saklıdır.
+</p>
 
-    </div>
+<p style="margin-top:6px;">
+Hazırlayan:
+<strong style="color:#94a3b8;">
+Muhammed Karayel
+</strong>
+</p>
 
-    <div class="copyright">
-
-        <p>
-            © 2026 Karayel Yazılım.
-            Tüm hakları saklıdır.
-        </p>
-
-        <p style="margin-top:6px;">
-            Hazırlayan: <strong style="color:#94a3b8;">
-                Muhammed Karayel
-            </strong>
-        </p>
-
-    </div>
+</div>
 
 </footer>
 
+</div>
 
-<!-- YUKARI ÇIKIŞ -->
 
-<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-    ↑
+<!-- =========================
+     UYGULAMA EKRANI
+========================= -->
+
+<section id="uygulamaEkrani">
+
+<div class="app-screen-inner">
+
+<button class="btn btn-secondary back-btn"
+onclick="anaSayfayaDon()">
+← Karayel Yazılım'a Dön
+</button>
+
+<div class="app-screen-card">
+
+<div class="app-screen-header">
+
+<div class="big-app-icon" id="buyukIkon">
+📱
+</div>
+
+<div>
+
+<h1 id="uygulamaBaslik">
+Karayel Uygulaması
+</h1>
+
+<p id="uygulamaAciklama">
+Uygulama ekranı
+</p>
+
+</div>
+
+</div>
+
+<div class="app-placeholder">
+
+<div class="big" id="placeholderIkon">
+🚀
+</div>
+
+<h2 id="placeholderBaslik">
+Uygulama Hazırlanıyor
+</h2>
+
+<p id="placeholderYazi">
+Bu alan seçilen uygulamanın kendi özellikleriyle
+doldurulabilir. Uygulamaları aynı HTML dosyası
+içinde geliştirmeye devam edebiliriz.
+</p>
+
+</div>
+
+</div>
+</div>
+
+</section>
+
+
+<button id="topBtn"
+onclick="window.scrollTo({top:0,behavior:'smooth'})">
+↑
 </button>
 
 
@@ -1455,10 +1401,10 @@ body.light .mobile-menu a{
 
 function mobilMenu(){
 
-    const menu =
-        document.getElementById("mobileMenu");
+const menu=document.getElementById("mobileMenu");
 
-    menu.classList.toggle("open");
+menu.classList.toggle("open");
+
 }
 
 
@@ -1468,107 +1414,198 @@ function mobilMenu(){
 
 function temaDegistir(){
 
-    document.body.classList.toggle("light");
+document.body.classList.toggle("light");
 
-    const acik =
-        document.body.classList.contains("light");
+const acik=document.body.classList.contains("light");
 
-    localStorage.setItem(
-        "karayelTema",
-        acik ? "light" : "dark"
-    );
+localStorage.setItem(
+"karayelTema",
+acik ? "light" : "dark"
+);
 
-    document.querySelectorAll(".theme-btn")
-        .forEach(btn=>{
-            btn.textContent =
-                acik ? "☀️" : "🌙";
-        });
+document.querySelectorAll(".theme-btn")
+.forEach(btn=>{
+btn.textContent=acik ? "☀️" : "🌙";
+});
+
 }
 
 
-/* Kayıtlı temayı yükle */
+/* Kayıtlı tema */
 
-if(
-    localStorage.getItem("karayelTema")
-    === "light"
-){
+if(localStorage.getItem("karayelTema")==="light"){
 
-    document.body.classList.add("light");
+document.body.classList.add("light");
 
-    document.querySelectorAll(".theme-btn")
-        .forEach(btn=>{
-            btn.textContent="☀️";
-        });
+document.querySelectorAll(".theme-btn")
+.forEach(btn=>{
+btn.textContent="☀️";
+});
 
 }
 
 
 /* =========================
-   UYGULAMA ARAMA
+   UYGULAMA AÇ
+========================= */
+
+function uygulamaAc(tip){
+
+const ana=document.getElementById("anaSayfa");
+const ekran=document.getElementById("uygulamaEkrani");
+
+const baslik=document.getElementById("uygulamaBaslik");
+const aciklama=document.getElementById("uygulamaAciklama");
+const ikon=document.getElementById("buyukIkon");
+const pIkon=document.getElementById("placeholderIkon");
+const pBaslik=document.getElementById("placeholderBaslik");
+const pYazi=document.getElementById("placeholderYazi");
+
+
+if(tip==="foto"){
+
+baslik.textContent="Karayel Fotoğraf Editörü";
+aciklama.textContent="Fotoğraflarınızı kolayca düzenleyin.";
+ikon.textContent="🖼️";
+pIkon.textContent="🖼️";
+pBaslik.textContent="Fotoğraf Editörü";
+pYazi.textContent=
+"Fotoğraf yükleme, kırpma, döndürme, filtreler, yazı ekleme ve daha birçok özelliği bu ekranın içine ekleyebiliriz.";
+
+}
+
+
+else if(tip==="excel"){
+
+baslik.textContent="Karayel Excel 2026";
+aciklama.textContent="Tablolarınızı ve hesaplamalarınızı yönetin.";
+ikon.textContent="📊";
+pIkon.textContent="📊";
+pBaslik.textContent="Karayel Excel 2026";
+pYazi.textContent=
+"Hücreler, tablolar, formüller, toplamlar, kayıt ve dışa aktarma özelliklerini bu ekrana ekleyebiliriz.";
+
+}
+
+
+else if(tip==="not"){
+
+baslik.textContent="Karayel Not Defteri";
+aciklama.textContent="Notlarınızı kolayca oluşturun ve yönetin.";
+ikon.textContent="📝";
+pIkon.textContent="📝";
+pBaslik.textContent="Karayel Not Defteri";
+pYazi.textContent=
+"Not oluşturma, düzenleme, arama, otomatik kayıt, renkler ve klasör sistemi gibi özellikler burada çalışabilir.";
+
+}
+
+
+else if(tip==="zikir"){
+
+baslik.textContent="Karayel Zikirmatik";
+aciklama.textContent="Zikirlerinizi kolayca takip edin.";
+ikon.textContent="📿";
+pIkon.textContent="📿";
+pBaslik.textContent="Karayel Zikirmatik";
+pYazi.textContent=
+"Zikir sayacı, hedef belirleme, kayıt sistemi, günlük zikirler ve diğer özellikleri bu uygulama ekranına ekleyebiliriz.";
+
+}
+
+
+ana.style.display="none";
+ekran.style.display="block";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* =========================
+   ANA SAYFAYA DÖN
+========================= */
+
+function anaSayfayaDon(){
+
+document.getElementById("uygulamaEkrani").style.display="none";
+document.getElementById("anaSayfa").style.display="block";
+
+document.getElementById("mobileMenu")
+.classList.remove("open");
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* =========================
+   ARAMA
 ========================= */
 
 function uygulamaAra(){
 
-    const arama =
-        document
-        .getElementById("arama")
-        .value
-        .toLowerCase()
-        .trim();
+const arama=document
+.getElementById("arama")
+.value
+.toLowerCase()
+.trim();
 
-    const kartlar =
-        document.querySelectorAll(".app-card");
+const kartlar=document
+.querySelectorAll(".app-card");
 
-    kartlar.forEach(kart=>{
+kartlar.forEach(kart=>{
 
-        const isim =
-            kart.dataset.name.toLowerCase();
+const isim=kart.dataset.name.toLowerCase();
 
-        if(isim.includes(arama)){
-            kart.style.display="";
-        }else{
-            kart.style.display="none";
-        }
+kart.style.display=
+isim.includes(arama) ? "" : "none";
 
-    });
+});
+
 }
 
 
 /* =========================
-   YUKARI ÇIKIŞ BUTONU
+   YUKARI BUTONU
 ========================= */
 
-const topBtn =
-    document.getElementById("topBtn");
+const topBtn=document.getElementById("topBtn");
 
 window.addEventListener("scroll",()=>{
 
-    if(window.scrollY > 500){
+if(window.scrollY>500){
 
-        topBtn.classList.add("show");
+topBtn.classList.add("show");
 
-    }else{
+}else{
 
-        topBtn.classList.remove("show");
+topBtn.classList.remove("show");
 
-    }
+}
 
 });
 
 
 /* =========================
-   ESC İLE MENÜ KAPAT
+   ESC
 ========================= */
 
 document.addEventListener("keydown",(e)=>{
 
-    if(e.key==="Escape"){
+if(e.key==="Escape"){
 
-        document
-        .getElementById("mobileMenu")
-        .classList.remove("open");
+document
+.getElementById("mobileMenu")
+.classList.remove("open");
 
-    }
+}
 
 });
 
