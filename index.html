@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#07111f">
-<meta name="description" content="Karayel Yazılım 2026 - Modern, kullanışlı ve yenilikçi dijital uygulamalar.">
+<meta name="description" content="Karayel Yazılım 2026 - Modern dijital uygulamalar ve Karayel AI">
 <title>Karayel Yazılım 2026</title>
 
 <style>
@@ -22,67 +22,38 @@ html{
 body{
     font-family:Arial,Helvetica,sans-serif;
     background:#07111f;
-    color:#eef4ff;
-    line-height:1.6;
+    color:#fff;
     overflow-x:hidden;
-    transition:.3s;
-}
-
-body.light{
-    background:#f3f7fc;
-    color:#172033;
 }
 
 a{
-    color:inherit;
     text-decoration:none;
+    color:inherit;
 }
 
-button,input,textarea{
-    font:inherit;
+button,
+input,
+textarea{
+    font-family:inherit;
 }
 
-:root{
-    --bg:#07111f;
-    --card:#0d1b2e;
-    --card2:#10233b;
-    --text:#eef4ff;
-    --muted:#9caec4;
-    --primary:#4285ff;
-    --secondary:#8b5cf6;
-    --border:rgba(255,255,255,.09);
-    --shadow:0 20px 60px rgba(0,0,0,.28);
-}
-
-body.light{
-    --bg:#f3f7fc;
-    --card:#ffffff;
-    --card2:#edf3fb;
-    --text:#172033;
-    --muted:#607089;
-    --border:rgba(20,40,70,.12);
-    --shadow:0 15px 45px rgba(30,50,80,.12);
-}
-
-/* NAVBAR */
+/* =========================
+   NAVBAR
+========================= */
 
 .navbar{
     position:fixed;
     top:0;
     left:0;
-    width:100%;
+    right:0;
     height:72px;
     z-index:1000;
-    background:rgba(7,17,31,.88);
+    background:rgba(7,17,31,.82);
     backdrop-filter:blur(18px);
-    border-bottom:1px solid var(--border);
+    border-bottom:1px solid rgba(255,255,255,.08);
 }
 
-body.light .navbar{
-    background:rgba(255,255,255,.88);
-}
-
-.nav-inner{
+.nav-container{
     max-width:1200px;
     height:100%;
     margin:auto;
@@ -96,196 +67,201 @@ body.light .navbar{
     display:flex;
     align-items:center;
     gap:10px;
-    font-size:20px;
+    font-size:19px;
     font-weight:800;
 }
 
-.logo-icon{
+.logo-box{
     width:40px;
     height:40px;
     border-radius:12px;
     display:flex;
     align-items:center;
     justify-content:center;
-    background:linear-gradient(135deg,var(--primary),var(--secondary));
-    box-shadow:0 8px 25px rgba(66,133,255,.25);
+    background:linear-gradient(135deg,#4285ff,#8b5cf6);
+    box-shadow:0 8px 25px rgba(66,133,255,.3);
 }
 
-.nav-links{
+.nav-menu{
     display:flex;
     align-items:center;
-    gap:8px;
+    gap:5px;
 }
 
-.nav-links a,
-.theme-btn{
+.nav-menu a{
     padding:10px 14px;
+    color:#9eafc5;
     border-radius:10px;
-    color:var(--muted);
     transition:.25s;
-    background:none;
-    border:0;
-    cursor:pointer;
 }
 
-.nav-links a:hover,
-.theme-btn:hover{
-    color:var(--text);
-    background:var(--card2);
+.nav-menu a:hover{
+    background:#10233b;
+    color:#fff;
 }
 
-.menu-btn{
+.ai-nav{
+    color:#b794ff!important;
+}
+
+.menu-button{
     display:none;
-    background:none;
     border:0;
-    color:var(--text);
+    background:none;
+    color:white;
     font-size:28px;
     cursor:pointer;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
     min-height:100vh;
-    padding:150px 22px 90px;
+    position:relative;
     display:flex;
     align-items:center;
     justify-content:center;
-    position:relative;
+    text-align:center;
+    padding:130px 20px 80px;
     overflow:hidden;
 }
 
 .hero::before{
     content:"";
     position:absolute;
-    width:600px;
-    height:600px;
-    border-radius:50%;
-    background:radial-gradient(circle,rgba(66,133,255,.20),transparent 65%);
-    top:-180px;
-    left:-180px;
+    width:650px;
+    height:650px;
+    left:-260px;
+    top:-260px;
+    background:radial-gradient(circle,rgba(66,133,255,.22),transparent 65%);
 }
 
 .hero::after{
     content:"";
     position:absolute;
-    width:550px;
-    height:550px;
-    border-radius:50%;
-    background:radial-gradient(circle,rgba(139,92,246,.17),transparent 65%);
-    right:-180px;
-    bottom:-180px;
+    width:600px;
+    height:600px;
+    right:-260px;
+    bottom:-260px;
+    background:radial-gradient(circle,rgba(139,92,246,.2),transparent 65%);
 }
 
 .hero-content{
-    max-width:1000px;
-    text-align:center;
     position:relative;
     z-index:2;
+    max-width:850px;
 }
 
 .badge{
-    display:inline-flex;
-    padding:8px 14px;
-    border:1px solid rgba(66,133,255,.3);
+    display:inline-block;
+    padding:8px 15px;
     border-radius:50px;
+    border:1px solid rgba(66,133,255,.3);
     background:rgba(66,133,255,.08);
-    color:#76a8ff;
+    color:#78a8ff;
     font-size:13px;
     margin-bottom:22px;
 }
 
 .hero h1{
-    font-size:clamp(42px,7vw,78px);
-    line-height:1.05;
+    font-size:clamp(43px,8vw,78px);
+    line-height:1.04;
     font-weight:900;
-    margin-bottom:24px;
+    margin-bottom:22px;
 }
 
 .gradient{
-    background:linear-gradient(90deg,#4f8cff,#9d68ff);
+    background:linear-gradient(90deg,#4b8cff,#a06cff);
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
 }
 
 .hero p{
-    max-width:720px;
-    margin:auto;
-    color:var(--muted);
+    color:#9eafc5;
     font-size:18px;
+    max-width:680px;
+    margin:auto;
 }
 
 .hero-buttons{
+    margin-top:32px;
     display:flex;
     justify-content:center;
-    gap:14px;
     flex-wrap:wrap;
-    margin-top:34px;
+    gap:12px;
 }
 
 .btn{
     border:0;
-    cursor:pointer;
-    padding:14px 22px;
     border-radius:13px;
+    padding:14px 22px;
     font-weight:700;
+    cursor:pointer;
     transition:.25s;
 }
 
 .btn-primary{
     color:white;
-    background:linear-gradient(135deg,var(--primary),var(--secondary));
-    box-shadow:0 12px 30px rgba(66,133,255,.22);
+    background:linear-gradient(135deg,#4285ff,#8b5cf6);
+    box-shadow:0 12px 30px rgba(66,133,255,.2);
 }
 
 .btn-primary:hover{
-    transform:translateY(-2px);
+    transform:translateY(-3px);
 }
 
 .btn-secondary{
-    background:var(--card);
-    color:var(--text);
-    border:1px solid var(--border);
+    background:#0d1b2e;
+    color:white;
+    border:1px solid rgba(255,255,255,.09);
 }
 
-/* STATS */
+.btn-secondary:hover{
+    background:#122640;
+}
+
+/* =========================
+   STATS
+========================= */
 
 .stats{
     max-width:1000px;
-    margin:-25px auto 80px;
-    padding:0 22px;
+    margin:-25px auto 60px;
+    padding:0 20px;
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:16px;
+    gap:15px;
     position:relative;
     z-index:5;
 }
 
 .stat{
-    background:var(--card);
-    border:1px solid var(--border);
+    text-align:center;
+    background:#0d1b2e;
+    border:1px solid rgba(255,255,255,.08);
     border-radius:18px;
     padding:25px;
-    text-align:center;
-    box-shadow:var(--shadow);
 }
 
 .stat strong{
     display:block;
-    font-size:32px;
-    margin-bottom:4px;
+    font-size:31px;
 }
 
 .stat span{
-    color:var(--muted);
-    font-size:14px;
+    color:#8fa2ba;
+    font-size:13px;
 }
 
-/* GENERAL */
+/* =========================
+   SECTIONS
+========================= */
 
 section{
-    padding:90px 22px;
+    padding:90px 20px;
 }
 
 .container{
@@ -295,7 +271,7 @@ section{
 
 .section-title{
     text-align:center;
-    margin-bottom:45px;
+    margin-bottom:42px;
 }
 
 .section-title h2{
@@ -304,48 +280,47 @@ section{
 }
 
 .section-title p{
-    color:var(--muted);
+    color:#8fa2ba;
 }
 
-/* SEARCH */
+/* =========================
+   APPLICATIONS
+========================= */
 
-.search-box{
+.search{
     max-width:600px;
-    margin:0 auto 35px;
-    position:relative;
+    margin:0 auto 30px;
 }
 
-.search-box input{
+.search input{
     width:100%;
-    padding:17px 20px;
-    border-radius:14px;
-    border:1px solid var(--border);
+    padding:16px 19px;
+    border-radius:13px;
+    border:1px solid rgba(255,255,255,.08);
+    background:#0d1b2e;
+    color:white;
     outline:none;
-    background:var(--card);
-    color:var(--text);
 }
 
-/* APPS */
-
-.apps-grid{
+.apps{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:18px;
 }
 
-.app-card{
-    background:var(--card);
-    border:1px solid var(--border);
+.app{
+    background:#0d1b2e;
+    border:1px solid rgba(255,255,255,.08);
     border-radius:20px;
     padding:25px;
-    transition:.3s;
     cursor:pointer;
+    transition:.3s;
 }
 
-.app-card:hover{
+.app:hover{
     transform:translateY(-7px);
-    box-shadow:var(--shadow);
     border-color:rgba(66,133,255,.3);
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
 }
 
 .app-icon{
@@ -356,167 +331,163 @@ section{
     align-items:center;
     justify-content:center;
     font-size:28px;
+    background:linear-gradient(
+        135deg,
+        rgba(66,133,255,.18),
+        rgba(139,92,246,.18)
+    );
     margin-bottom:18px;
-    background:linear-gradient(135deg,rgba(66,133,255,.18),rgba(139,92,246,.18));
 }
 
-.app-card h3{
+.app h3{
     margin-bottom:7px;
 }
 
-.app-card p{
-    color:var(--muted);
+.app p{
+    color:#8fa2ba;
     font-size:14px;
-    margin-bottom:18px;
+    margin-bottom:16px;
 }
 
-.status{
+.app-status{
     display:inline-block;
+    font-size:10px;
+    font-weight:bold;
     padding:5px 9px;
     border-radius:7px;
     background:rgba(66,133,255,.1);
     color:#72a5ff;
-    font-size:11px;
-    font-weight:bold;
 }
 
-/* KARAYEL AI */
+/* =========================
+   KARAYEL AI
+========================= */
 
 .ai-section{
     position:relative;
 }
 
-.ai-section::before{
-    content:"";
-    position:absolute;
-    width:500px;
-    height:500px;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    background:radial-gradient(circle,rgba(66,133,255,.12),transparent 65%);
-    pointer-events:none;
+.ai-container{
+    max-width:1000px;
+    margin:auto;
 }
 
-.ai-box{
-    max-width:1000px;
-    min-height:600px;
-    margin:auto;
-    position:relative;
-    z-index:2;
+.ai-card{
+    min-height:650px;
     display:flex;
     flex-direction:column;
-    background:rgba(13,27,46,.82);
-    border:1px solid var(--border);
-    border-radius:26px;
+    background:#0b192b;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:25px;
     overflow:hidden;
-    box-shadow:var(--shadow);
-}
-
-body.light .ai-box{
-    background:#fff;
+    box-shadow:0 25px 70px rgba(0,0,0,.3);
 }
 
 .ai-header{
-    padding:20px 24px;
+    height:76px;
+    padding:0 22px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    border-bottom:1px solid var(--border);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    background:#0e1e33;
 }
 
-.ai-brand{
+.ai-title{
     display:flex;
     align-items:center;
     gap:12px;
 }
 
 .ai-logo{
-    width:48px;
-    height:48px;
-    border-radius:15px;
+    width:47px;
+    height:47px;
+    border-radius:14px;
     display:flex;
     align-items:center;
     justify-content:center;
     font-size:25px;
-    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    background:linear-gradient(135deg,#4285ff,#8b5cf6);
 }
 
-.ai-brand strong{
+.ai-title strong{
     display:block;
 }
 
-.ai-brand small{
-    color:#5ee6a8;
+.ai-online{
+    color:#58e59c;
+    font-size:11px;
 }
 
 .ai-clear{
-    border:1px solid var(--border);
-    background:var(--card2);
-    color:var(--text);
     padding:8px 12px;
+    border:1px solid rgba(255,255,255,.08);
     border-radius:9px;
+    background:#132640;
+    color:#a9b9ce;
     cursor:pointer;
 }
 
 .chat{
     flex:1;
-    min-height:380px;
-    padding:25px;
+    height:430px;
     overflow-y:auto;
+    padding:25px;
 }
 
-.message{
+.msg{
     display:flex;
     margin-bottom:18px;
 }
 
-.message.user{
+.msg.user{
     justify-content:flex-end;
 }
 
-.message-bubble{
+.bubble{
     max-width:75%;
-    padding:13px 16px;
+    padding:14px 17px;
     border-radius:16px;
     font-size:14px;
+    line-height:1.6;
     white-space:pre-wrap;
 }
 
-.message.ai .message-bubble{
-    background:var(--card2);
-    border:1px solid var(--border);
+.msg.ai .bubble{
+    background:#11243c;
+    border:1px solid rgba(255,255,255,.06);
 }
 
-.message.user .message-bubble{
+.msg.user .bubble{
+    background:linear-gradient(135deg,#4285ff,#8b5cf6);
     color:white;
-    background:linear-gradient(135deg,var(--primary),var(--secondary));
 }
 
-.quick-prompts{
-    padding:0 22px 15px;
+.quick{
+    padding:0 20px 15px;
     display:flex;
     gap:8px;
-    flex-wrap:wrap;
+    overflow-x:auto;
 }
 
-.quick-prompts button{
-    border:1px solid var(--border);
-    background:var(--card2);
-    color:var(--muted);
-    padding:8px 11px;
+.quick button{
+    flex-shrink:0;
+    padding:8px 12px;
+    border:1px solid rgba(255,255,255,.08);
     border-radius:9px;
+    background:#11243c;
+    color:#9eafc5;
     cursor:pointer;
     font-size:12px;
 }
 
-.quick-prompts button:hover{
-    color:var(--text);
+.quick button:hover{
+    color:white;
 }
 
 .ai-input{
     padding:15px;
-    border-top:1px solid var(--border);
+    border-top:1px solid rgba(255,255,255,.08);
 }
 
 .ai-form{
@@ -526,50 +497,30 @@ body.light .ai-box{
 
 .ai-form textarea{
     flex:1;
-    resize:none;
-    min-height:52px;
+    min-height:54px;
     max-height:130px;
+    resize:none;
     padding:15px;
     border-radius:14px;
-    border:1px solid var(--border);
-    background:var(--card2);
-    color:var(--text);
+    border:1px solid rgba(255,255,255,.08);
+    background:#11243c;
+    color:white;
     outline:none;
 }
 
-.send-btn{
+.send{
     width:55px;
     border:0;
     border-radius:14px;
-    cursor:pointer;
     color:white;
     font-size:20px;
-    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    cursor:pointer;
+    background:linear-gradient(135deg,#4285ff,#8b5cf6);
 }
 
-.typing{
-    display:flex;
-    gap:4px;
-    padding:5px;
-}
-
-.typing span{
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:#8fa6c4;
-    animation:typing 1s infinite;
-}
-
-.typing span:nth-child(2){animation-delay:.15s}
-.typing span:nth-child(3){animation-delay:.3s}
-
-@keyframes typing{
-    0%,100%{opacity:.25;transform:translateY(0)}
-    50%{opacity:1;transform:translateY(-3px)}
-}
-
-/* FEATURES */
+/* =========================
+   FEATURES
+========================= */
 
 .features{
     display:grid;
@@ -578,131 +529,94 @@ body.light .ai-box{
 }
 
 .feature{
-    background:var(--card);
-    border:1px solid var(--border);
+    background:#0d1b2e;
+    border:1px solid rgba(255,255,255,.08);
     border-radius:18px;
     padding:25px;
 }
 
 .feature-icon{
-    font-size:28px;
+    font-size:29px;
     margin-bottom:12px;
 }
 
 .feature p{
-    color:var(--muted);
+    color:#8fa2ba;
     font-size:14px;
 }
 
-/* ABOUT */
+/* =========================
+   ABOUT
+========================= */
 
 .about{
-    max-width:850px;
+    max-width:800px;
     margin:auto;
     text-align:center;
 }
 
 .about p{
-    color:var(--muted);
+    color:#8fa2ba;
     margin-top:15px;
 }
 
-/* CONTACT */
+/* =========================
+   CONTACT
+========================= */
 
-.contact-card{
+.contact{
     max-width:750px;
     margin:auto;
     text-align:center;
+    background:#0d1b2e;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:22px;
     padding:40px;
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:24px;
 }
 
-/* APP SCREEN */
-
-#appScreen{
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:2000;
-    background:var(--bg);
-    overflow:auto;
+.contact p{
+    color:#8fa2ba;
+    margin:12px 0 22px;
 }
 
-.app-screen-header{
-    height:70px;
-    position:sticky;
-    top:0;
-    background:var(--card);
-    border-bottom:1px solid var(--border);
-    display:flex;
-    align-items:center;
-    gap:15px;
-    padding:0 18px;
-    z-index:10;
-}
-
-.back-btn{
-    border:1px solid var(--border);
-    background:var(--card2);
-    color:var(--text);
-    padding:9px 14px;
-    border-radius:10px;
-    cursor:pointer;
-}
-
-.app-screen-content{
-    max-width:1000px;
-    margin:auto;
-    padding:50px 22px;
-    text-align:center;
-}
-
-.app-screen-content h2{
-    font-size:40px;
-    margin-bottom:12px;
-}
-
-.app-screen-content p{
-    color:var(--muted);
-}
-
-/* TOP */
-
-.top-btn{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    border:1px solid var(--border);
-    background:var(--card);
-    color:var(--text);
-    cursor:pointer;
-    z-index:900;
-    display:none;
-}
-
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-    border-top:1px solid var(--border);
-    padding:30px 22px;
+    padding:30px 20px;
     text-align:center;
-    color:var(--muted);
+    color:#8193aa;
+    border-top:1px solid rgba(255,255,255,.07);
     font-size:13px;
 }
 
-footer strong{
-    color:var(--text);
+/* =========================
+   TOP
+========================= */
+
+.top{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.1);
+    background:#0d1b2e;
+    color:white;
+    cursor:pointer;
+    display:none;
+    z-index:500;
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
-@media(max-width:900px){
-    .apps-grid{
+@media(max-width:950px){
+
+    .apps{
         grid-template-columns:repeat(2,1fr);
     }
 
@@ -712,74 +626,72 @@ footer strong{
 }
 
 @media(max-width:700px){
+
     .navbar{
-        height:64px;
+        height:65px;
     }
 
-    .nav-links{
-        display:none;
-        position:absolute;
-        top:64px;
-        left:0;
-        width:100%;
-        padding:15px;
-        background:var(--card);
-        border-bottom:1px solid var(--border);
-        flex-direction:column;
-        align-items:stretch;
-    }
-
-    .nav-links.open{
-        display:flex;
-    }
-
-    .nav-links a,
-    .theme-btn{
-        width:100%;
-        text-align:center;
-        padding:13px;
-    }
-
-    .menu-btn{
+    .menu-button{
         display:block;
     }
 
+    .nav-menu{
+        display:none;
+        position:absolute;
+        top:65px;
+        left:0;
+        right:0;
+        padding:12px;
+        flex-direction:column;
+        background:#0b192b;
+        border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .nav-menu.open{
+        display:flex;
+    }
+
+    .nav-menu a{
+        width:100%;
+        text-align:center;
+    }
+
     .hero{
-        padding-top:125px;
+        padding-top:115px;
     }
 
     .stats{
         grid-template-columns:1fr;
     }
 
-    .apps-grid{
+    .apps{
         grid-template-columns:1fr;
     }
 
-    .ai-box{
+    .ai-card{
         min-height:650px;
         border-radius:20px;
     }
 
-    .message-bubble{
+    .bubble{
         max-width:88%;
     }
 
     .ai-header{
-        padding:16px;
+        padding:0 15px;
     }
 
-    .quick-prompts{
-        overflow-x:auto;
-        flex-wrap:nowrap;
+    .ai-clear{
+        font-size:12px;
     }
 
-    .quick-prompts button{
-        flex-shrink:0;
+    .quick{
+        padding-left:15px;
+        padding-right:15px;
     }
 
-    .ai-form textarea{
-        font-size:14px;
+    .contact{
+        padding:28px 20px;
     }
 }
 </style>
@@ -787,782 +699,1040 @@ footer strong{
 
 <body>
 
-<!-- NAVBAR -->
+<!-- =========================
+     NAVBAR
+========================= -->
 
 <header class="navbar">
-    <div class="nav-inner">
 
-        <a href="#anasayfa" class="logo">
-            <span class="logo-icon">K</span>
-            <span>Karayel Yazılım</span>
-        </a>
+<div class="nav-container">
 
-        <button class="menu-btn" id="menuBtn">☰</button>
+<a href="#anasayfa" class="logo">
+    <span class="logo-box">K</span>
+    <span>Karayel Yazılım</span>
+</a>
 
-        <nav class="nav-links" id="navLinks">
-            <a href="#anasayfa">Ana Sayfa</a>
-            <a href="#uygulamalar">Uygulamalar</a>
-            <a href="#karayelAI">Karayel AI</a>
-            <a href="#ozellikler">Özellikler</a>
-            <a href="#hakkimizda">Hakkımızda</a>
-            <a href="#iletisim">İletişim</a>
-            <button class="theme-btn" id="themeBtn">☀️ Tema</button>
-        </nav>
+<button class="menu-button" id="menuButton">☰</button>
 
-    </div>
+<nav class="nav-menu" id="navMenu">
+
+<a href="#anasayfa">Ana Sayfa</a>
+<a href="#uygulamalar">Uygulamalar</a>
+<a href="#karayel-ai" class="ai-nav">🤖 Karayel AI</a>
+<a href="#ozellikler">Özellikler</a>
+<a href="#hakkimizda">Hakkımızda</a>
+<a href="#iletisim">İletişim</a>
+
+</nav>
+
+</div>
+
 </header>
 
-<!-- HERO -->
 
-<main>
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero" id="anasayfa">
-    <div class="hero-content">
 
-        <span class="badge">🚀 KARAYEL YAZILIM 2026</span>
+<div class="hero-content">
 
-        <h1>
-            Dijital dünyada<br>
-            <span class="gradient">yeni bir Karayel</span>
-        </h1>
+<span class="badge">
+🚀 KARAYEL YAZILIM 2026
+</span>
 
-        <p>
-            Modern, hızlı, kullanışlı ve herkes için geliştirilen
-            yeni nesil dijital uygulamalar.
-        </p>
+<h1>
+Geleceğin yazılımları<br>
+<span class="gradient">Karayel ile burada</span>
+</h1>
 
-        <div class="hero-buttons">
-            <a href="#uygulamalar" class="btn btn-primary">
-                Uygulamaları Keşfet →
-            </a>
+<p>
+Modern, hızlı, kullanışlı ve herkes için geliştirilen
+yeni nesil dijital uygulamalar.
+</p>
 
-            <a href="#karayelAI" class="btn btn-secondary">
-                🤖 Karayel AI
-            </a>
-        </div>
+<div class="hero-buttons">
 
-    </div>
+<a href="#uygulamalar" class="btn btn-primary">
+Uygulamaları Keşfet →
+</a>
+
+<a href="#karayel-ai" class="btn btn-secondary">
+🤖 Karayel AI
+</a>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- STATS -->
+
+<!-- =========================
+     STATS
+========================= -->
 
 <div class="stats">
 
-    <div class="stat">
-        <strong>4+</strong>
-        <span>Uygulama</span>
-    </div>
+<div class="stat">
+<strong>2026</strong>
+<span>Yeni Nesil Yazılım</span>
+</div>
 
-    <div class="stat">
-        <strong>2026</strong>
-        <span>Yeni Nesil</span>
-    </div>
+<div class="stat">
+<strong>4+</strong>
+<span>Geliştirilen Proje</span>
+</div>
 
-    <div class="stat">
-        <strong>100%</strong>
-        <span>Karayel Yazılım</span>
-    </div>
+<div class="stat">
+<strong>∞</strong>
+<span>Yeni Fikirler</span>
+</div>
 
 </div>
 
-<!-- APPLICATIONS -->
+
+<!-- =========================
+     APPLICATIONS
+========================= -->
 
 <section id="uygulamalar">
 
-    <div class="container">
+<div class="container">
 
-        <div class="section-title">
-            <h2>Uygulamalarımız</h2>
-            <p>Karayel Yazılım tarafından geliştirilen uygulamalar.</p>
-        </div>
+<div class="section-title">
 
-        <div class="search-box">
-            <input
-                type="search"
-                id="appSearch"
-                placeholder="🔎 Uygulama ara..."
-            >
-        </div>
+<h2>Uygulamalar</h2>
 
-        <div class="apps-grid" id="appsGrid">
-
-            <div class="app-card" data-name="fotoğraf editörü foto editör">
-                <div class="app-icon">🖼️</div>
-                <h3>Karayel Fotoğraf Editörü</h3>
-                <p>Fotoğraflarınızı kolayca düzenleyin.</p>
-                <span class="status">YAKINDA</span>
-            </div>
-
-            <div class="app-card" data-name="excel karayel excel 2026 tablo">
-                <div class="app-icon">📊</div>
-                <h3>Karayel Excel 2026</h3>
-                <p>Tablolarınızı ve verilerinizi yönetin.</p>
-                <span class="status">YAKINDA</span>
-            </div>
-
-            <div class="app-card" data-name="not defteri metin yazı">
-                <div class="app-icon">📝</div>
-                <h3>Karayel Not Defteri</h3>
-                <p>Notlarınızı hızlı ve düzenli şekilde tutun.</p>
-                <span class="status">YAKINDA</span>
-            </div>
-
-            <div class="app-card" data-name="zikirmatik zikir dini">
-                <div class="app-icon">📿</div>
-                <h3>Karayel Zikirmatik</h3>
-                <p>Modern ve kullanışlı zikir uygulaması.</p>
-                <span class="status">YAKINDA</span>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- KARAYEL AI -->
-
-<section class="ai-section" id="karayelAI">
-
-    <div class="container">
-
-        <div class="section-title">
-            <span class="badge">🤖 YENİ</span>
-            <h2>Karayel AI</h2>
-            <p>
-                Karayel Yazılım'ın yapay zekâ asistanı.
-                Sor, üret, öğren ve geliştir.
-            </p>
-        </div>
-
-        <div class="ai-box">
-
-            <div class="ai-header">
-
-                <div class="ai-brand">
-
-                    <div class="ai-logo">🤖</div>
-
-                    <div>
-                        <strong>Karayel AI</strong>
-                        <small>● Çevrimiçi</small>
-                    </div>
-
-                </div>
-
-                <button class="ai-clear" id="clearChat">
-                    Temizle
-                </button>
-
-            </div>
-
-            <div class="chat" id="chat">
-
-                <div class="message ai">
-                    <div class="message-bubble">
-                        👋 Merhaba! Ben <strong>Karayel AI</strong>.
-
-                        Bana bir soru sorabilir, proje fikri isteyebilir,
-                        HTML/CSS/JavaScript kodu hazırlatabilir veya bir
-                        konuda yardım isteyebilirsin.
-
-                        Nasıl yardımcı olabilirim?
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="quick-prompts">
-
-                <button data-prompt="Bana modern bir HTML sitesi yap.">
-                    💻 HTML sitesi
-                </button>
-
-                <button data-prompt="Bana bir uygulama fikri ver.">
-                    💡 Uygulama fikri
-                </button>
-
-                <button data-prompt="JavaScript öğrenmek istiyorum. Nereden başlayayım?">
-                    📚 JavaScript
-                </button>
-
-                <button data-prompt="Bana Karayel Yazılım için bir proje fikri ver.">
-                    🚀 Proje fikri
-                </button>
-
-            </div>
-
-            <div class="ai-input">
-
-                <form class="ai-form" id="aiForm">
-
-                    <textarea
-                        id="aiInput"
-                        rows="1"
-                        placeholder="Karayel AI'a bir şey sor..."
-                    ></textarea>
-
-                    <button class="send-btn" type="submit">
-                        ➤
-                    </button>
-
-                </form>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- FEATURES -->
-
-<section id="ozellikler">
-
-    <div class="container">
-
-        <div class="section-title">
-            <h2>Neden Karayel Yazılım?</h2>
-            <p>Basitlik ve güçlü teknolojiyi bir araya getiriyoruz.</p>
-        </div>
-
-        <div class="features">
-
-            <div class="feature">
-                <div class="feature-icon">📱</div>
-                <h3>Mobil Uyumlu</h3>
-                <p>
-                    Telefon, tablet ve bilgisayarlarda
-                    rahatlıkla kullanılabilir.
-                </p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">⚡</div>
-                <h3>Hızlı</h3>
-                <p>
-                    Gereksiz karmaşıklıklardan uzak,
-                    hızlı ve akıcı deneyim.
-                </p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">🎨</div>
-                <h3>Modern Tasarım</h3>
-                <p>
-                    Modern, sade ve kullanıcı odaklı
-                    arayüzler.
-                </p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">👤</div>
-                <h3>Kullanıcı Odaklı</h3>
-                <p>
-                    Gerçek kullanıcı ihtiyaçlarına
-                    göre geliştirilen uygulamalar.
-                </p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">🌙</div>
-                <h3>Koyu / Açık Tema</h3>
-                <p>
-                    Tercihinize göre karanlık veya
-                    aydınlık görünüm.
-                </p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">🚀</div>
-                <h3>Sürekli Gelişim</h3>
-                <p>
-                    Karayel Yazılım her gün yeni
-                    özelliklerle gelişiyor.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ABOUT -->
-
-<section id="hakkimizda">
-
-    <div class="container">
-
-        <div class="about">
-
-            <div class="section-title">
-                <h2>Karayel Yazılım</h2>
-            </div>
-
-            <p>
-                Karayel Yazılım, kullanıcıların günlük hayatını
-                kolaylaştıracak modern dijital uygulamalar geliştirme
-                amacıyla oluşturulmuş yeni nesil bir yazılım markasıdır.
-            </p>
-
-            <p>
-                2026 yılında yeni projeler, yapay zekâ teknolojileri,
-                mobil uygulamalar ve bilgisayar yazılımlarıyla
-                büyümeye devam ediyor.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="iletisim">
-
-    <div class="container">
-
-        <div class="section-title">
-            <h2>İletişim</h2>
-            <p>Karayel Yazılım ile iletişime geçin.</p>
-        </div>
-
-        <div class="contact-card">
-
-            <h3>📧 Bize Ulaşın</h3>
-
-            <p style="color:var(--muted);margin:12px 0 22px;">
-                Görüş, öneri ve proje fikirlerinizi bizimle paylaşabilirsiniz.
-            </p>
-
-            <a
-                href="mailto:karayelyazilim@gmail.com"
-                class="btn btn-primary"
-            >
-                E-posta Gönder
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-</main>
-
-<!-- FOOTER -->
-
-<footer>
-    © 2026 <strong>Karayel Yazılım</strong> — Tüm hakları saklıdır.
-</footer>
-
-<!-- TOP BUTTON -->
-
-<button class="top-btn" id="topBtn">↑</button>
-
-<!-- APP SCREEN -->
-
-<div id="appScreen">
-
-    <div class="app-screen-header">
-
-        <button class="back-btn" id="backBtn">
-            ← Geri
-        </button>
-
-        <strong id="appScreenTitle">
-            Karayel Yazılım
-        </strong>
-
-    </div>
-
-    <div class="app-screen-content">
-
-        <div style="font-size:70px;margin-bottom:20px;">
-            🚀
-        </div>
-
-        <h2 id="appScreenHeading">
-            Uygulama
-        </h2>
-
-        <p>
-            Bu uygulama Karayel Yazılım tarafından geliştiriliyor.
-            Çok yakında burada kullanıma sunulacak.
-        </p>
-
-        <br>
-
-        <button class="btn btn-primary" onclick="closeApp()">
-            ← Ana Sayfaya Dön
-        </button>
-
-    </div>
+<p>
+Karayel Yazılım tarafından geliştirilen
+uygulamaları keşfedin.
+</p>
 
 </div>
 
+<div class="search">
+
+<input
+type="search"
+id="search"
+placeholder="🔎 Uygulama ara..."
+>
+
+</div>
+
+<div class="apps" id="apps">
+
+
+<div class="app" data-name="fotoğraf editörü foto editör">
+
+<div class="app-icon">🖼️</div>
+
+<h3>Karayel Fotoğraf Editörü</h3>
+
+<p>
+Fotoğraflarınızı kolayca düzenleyin,
+kırpın ve geliştirin.
+</p>
+
+<span class="app-status">
+YAKINDA
+</span>
+
+</div>
+
+
+<div class="app" data-name="excel tablo hesaplama ofis">
+
+<div class="app-icon">📊</div>
+
+<h3>Karayel Excel 2026</h3>
+
+<p>
+Tablolarınızı, hesaplamalarınızı ve
+verilerinizi yönetin.
+</p>
+
+<span class="app-status">
+YAKINDA
+</span>
+
+</div>
+
+
+<div class="app" data-name="not defteri notlar metin">
+
+<div class="app-icon">📝</div>
+
+<h3>Karayel Not Defteri</h3>
+
+<p>
+Notlarınızı hızlı ve düzenli şekilde
+kaydedin.
+</p>
+
+<span class="app-status">
+YAKINDA
+</span>
+
+</div>
+
+
+<div class="app" data-name="zikirmatik zikir">
+
+<div class="app-icon">📿</div>
+
+<h3>Karayel Zikirmatik</h3>
+
+<p>
+Modern ve kullanışlı zikir uygulaması.
+</p>
+
+<span class="app-status">
+YAKINDA
+</span>
+
+</div>
+
+
+<div class="app" data-name="video player video oynatıcı 4k">
+
+<div class="app-icon">🎬</div>
+
+<h3>Karayel Video Player</h3>
+
+<p>
+Modern video oynatma deneyimi için
+geliştiriliyor.
+</p>
+
+<span class="app-status">
+PLANLANIYOR
+</span>
+
+</div>
+
+
+<div class="app" data-name="pdf pdf araçları">
+
+<div class="app-icon">📄</div>
+
+<h3>Karayel PDF</h3>
+
+<p>
+PDF dosyalarınız için kullanışlı
+araçlar.
+</p>
+
+<span class="app-status">
+PLANLANIYOR
+</span>
+
+</div>
+
+
+<div class="app" data-name="hesap makinesi hesaplama">
+
+<div class="app-icon">🧮</div>
+
+<h3>Karayel Hesap Makinesi</h3>
+
+<p>
+Günlük hesaplamalar için hızlı
+ve pratik çözüm.
+</p>
+
+<span class="app-status">
+PLANLANIYOR
+</span>
+
+</div>
+
+
+<div class="app" data-name="yapay zeka ai karayel">
+
+<div class="app-icon">🤖</div>
+
+<h3>Karayel AI</h3>
+
+<p>
+Yeni nesil yapay zekâ asistanı.
+</p>
+
+<span class="app-status">
+AKTİF
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     KARAYEL AI
+========================= -->
+
+<section id="karayel-ai">
+
+<div class="container">
+
+<div class="section-title">
+
+<span class="badge">
+🤖 KARAYEL AI
+</span>
+
+<h2>
+Karayel AI
+</h2>
+
+<p>
+Sor, öğren, üret ve geliştir.
+</p>
+
+</div>
+
+
+<div class="ai-container">
+
+<div class="ai-card">
+
+<div class="ai-header">
+
+<div class="ai-title">
+
+<div class="ai-logo">
+🤖
+</div>
+
+<div>
+
+<strong>Karayel AI</strong>
+
+<div class="ai-online">
+● Çevrimiçi
+</div>
+
+</div>
+
+</div>
+
+<button class="ai-clear" id="clearChat">
+Temizle
+</button>
+
+</div>
+
+
+<div class="chat" id="chat">
+
+<div class="msg ai">
+
+<div class="bubble">
+👋 Merhaba!
+
+Ben <strong>Karayel AI</strong>.
+
+Bana yazılım, web sitesi, uygulama,
+kodlama, proje fikirleri veya günlük
+sorular hakkında bir şey sorabilirsin.
+
+Nasıl yardımcı olabilirim?
+</div>
+
+</div>
+
+</div>
+
+
+<div class="quick">
+
+<button data-prompt="Bana modern bir HTML sitesi yap">
+💻 HTML sitesi
+</button>
+
+<button data-prompt="Bana bir uygulama fikri ver">
+💡 Uygulama fikri
+</button>
+
+<button data-prompt="JavaScript öğrenmek istiyorum">
+📚 JavaScript
+</button>
+
+<button data-prompt="Karayel Yazılım için proje fikri ver">
+🚀 Proje fikri
+</button>
+
+<button data-prompt="4K video oynatıcı yapabilir miyiz?">
+🎬 Video oynatıcı
+</button>
+
+</div>
+
+
+<div class="ai-input">
+
+<form class="ai-form" id="aiForm">
+
+<textarea
+id="aiInput"
+rows="1"
+placeholder="Karayel AI'a mesaj yaz..."
+></textarea>
+
+<button class="send" type="submit">
+➤
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FEATURES
+========================= -->
+
+<section id="ozellikler">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Özellikler</h2>
+
+<p>
+Karayel Yazılım'ı farklı yapan özellikler.
+</p>
+
+</div>
+
+<div class="features">
+
+
+<div class="feature">
+
+<div class="feature-icon">⚡</div>
+
+<h3>Hızlı</h3>
+
+<p>
+Hızlı ve akıcı çalışan modern
+uygulamalar geliştiriyoruz.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">📱</div>
+
+<h3>Mobil Uyumlu</h3>
+
+<p>
+Telefon, tablet ve bilgisayarlarda
+kullanılabilecek tasarımlar.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">🎨</div>
+
+<h3>Modern Tasarım</h3>
+
+<p>
+Sade, şık ve kullanıcı dostu
+arayüzler.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">🤖</div>
+
+<h3>Yapay Zekâ</h3>
+
+<p>
+Yeni nesil yapay zekâ teknolojilerini
+projelerimize dahil ediyoruz.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">🔒</div>
+
+<h3>Güvenli</h3>
+
+<p>
+Kullanıcı deneyimi ve güvenlik
+ön planda tutulur.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">🚀</div>
+
+<h3>Sürekli Gelişim</h3>
+
+<p>
+Karayel Yazılım her geçen gün
+yeni projelerle büyüyor.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="hakkimizda">
+
+<div class="container">
+
+<div class="about">
+
+<div class="section-title">
+
+<h2>Karayel Yazılım</h2>
+
+</div>
+
+<p>
+Karayel Yazılım; modern web uygulamaları,
+mobil uygulamalar, bilgisayar programları
+ve yapay zekâ projeleri geliştirmeyi
+amaçlayan yeni nesil bir yazılım markasıdır.
+</p>
+
+<p>
+2026 yılında daha fazla uygulama,
+daha fazla teknoloji ve daha fazla
+yenilik için çalışıyoruz.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="iletisim">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>İletişim</h2>
+
+<p>
+Karayel Yazılım ile iletişime geçin.
+</p>
+
+</div>
+
+<div class="contact">
+
+<h3>📧 Bize Ulaşın</h3>
+
+<p>
+Görüş, öneri ve proje fikirlerinizi
+bizimle paylaşabilirsiniz.
+</p>
+
+<a
+href="mailto:karayelyazilim@gmail.com"
+class="btn btn-primary"
+>
+E-posta Gönder
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+© 2026 <strong>Karayel Yazılım</strong>
+<br>
+Geleceği birlikte kodluyoruz. 🚀
+
+</footer>
+
+
+<button class="top" id="top">
+↑
+</button>
+
+
 <script>
 
-/* MENU */
+/* =========================
+   MOBİL MENÜ
+========================= */
 
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.getElementById("navLinks");
+const menuButton =
+document.getElementById("menuButton");
 
-menuBtn.addEventListener("click",()=>{
-    navLinks.classList.toggle("open");
-});
+const navMenu =
+document.getElementById("navMenu");
 
-document.querySelectorAll(".nav-links a").forEach(link=>{
-    link.addEventListener("click",()=>{
-        navLinks.classList.remove("open");
-    });
-});
+menuButton.addEventListener("click",()=>{
 
-
-/* THEME */
-
-const themeBtn = document.getElementById("themeBtn");
-
-if(localStorage.getItem("karayelTheme")==="light"){
-    document.body.classList.add("light");
-}
-
-function updateThemeButton(){
-    themeBtn.textContent =
-        document.body.classList.contains("light")
-        ? "🌙 Tema"
-        : "☀️ Tema";
-}
-
-updateThemeButton();
-
-themeBtn.addEventListener("click",()=>{
-
-    document.body.classList.toggle("light");
-
-    localStorage.setItem(
-        "karayelTheme",
-        document.body.classList.contains("light")
-        ? "light"
-        : "dark"
-    );
-
-    updateThemeButton();
-});
-
-
-/* APP SEARCH */
-
-const appSearch = document.getElementById("appSearch");
-const appCards = document.querySelectorAll(".app-card");
-
-appSearch.addEventListener("input",()=>{
-
-    const value = appSearch.value.toLowerCase().trim();
-
-    appCards.forEach(card=>{
-
-        const name = card.dataset.name.toLowerCase();
-
-        card.style.display =
-            name.includes(value)
-            ? ""
-            : "none";
-
-    });
+navMenu.classList.toggle("open");
 
 });
 
 
-/* APP SCREEN */
+document.querySelectorAll(".nav-menu a")
+.forEach(link=>{
 
-const appScreen = document.getElementById("appScreen");
-const appScreenTitle = document.getElementById("appScreenTitle");
-const appScreenHeading = document.getElementById("appScreenHeading");
+link.addEventListener("click",()=>{
 
-appCards.forEach(card=>{
-
-    card.addEventListener("click",()=>{
-
-        const title = card.querySelector("h3").textContent;
-
-        appScreenTitle.textContent = title;
-        appScreenHeading.textContent = title;
-
-        appScreen.style.display = "block";
-        document.body.style.overflow = "hidden";
-
-    });
+navMenu.classList.remove("open");
 
 });
-
-function closeApp(){
-
-    appScreen.style.display = "none";
-    document.body.style.overflow = "";
-
-}
-
-document.getElementById("backBtn")
-.addEventListener("click",closeApp);
-
-
-/* ESC */
-
-document.addEventListener("keydown",(e)=>{
-
-    if(e.key==="Escape" && appScreen.style.display==="block"){
-        closeApp();
-    }
 
 });
 
 
-/* TOP BUTTON */
+/* =========================
+   ARAMA
+========================= */
 
-const topBtn = document.getElementById("topBtn");
+const search =
+document.getElementById("search");
 
-window.addEventListener("scroll",()=>{
+const applications =
+document.querySelectorAll(".app");
 
-    topBtn.style.display =
-        window.scrollY > 500
-        ? "block"
-        : "none";
+search.addEventListener("input",()=>{
+
+const value =
+search.value.toLowerCase().trim();
+
+applications.forEach(app=>{
+
+const name =
+app.dataset.name.toLowerCase();
+
+app.style.display =
+name.includes(value)
+? ""
+: "none";
 
 });
 
-topBtn.addEventListener("click",()=>{
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
 });
 
 
-/* KARAYEL AI */
+/* =========================
+   KARAYEL AI
+========================= */
 
-const chat = document.getElementById("chat");
-const aiForm = document.getElementById("aiForm");
-const aiInput = document.getElementById("aiInput");
-const clearChat = document.getElementById("clearChat");
+const chat =
+document.getElementById("chat");
+
+const aiForm =
+document.getElementById("aiForm");
+
+const aiInput =
+document.getElementById("aiInput");
+
+const clearChat =
+document.getElementById("clearChat");
+
 
 function addMessage(text,type){
 
-    const message = document.createElement("div");
+const msg =
+document.createElement("div");
 
-    message.className =
-        "message " + type;
+msg.className =
+"msg " + type;
 
-    const bubble = document.createElement("div");
+const bubble =
+document.createElement("div");
 
-    bubble.className = "message-bubble";
+bubble.className =
+"bubble";
 
-    bubble.textContent = text;
+bubble.textContent =
+text;
 
-    message.appendChild(bubble);
+msg.appendChild(bubble);
 
-    chat.appendChild(message);
+chat.appendChild(msg);
 
-    chat.scrollTop = chat.scrollHeight;
-
-    return message;
-}
-
-
-function addTyping(){
-
-    const message = document.createElement("div");
-
-    message.className = "message ai";
-    message.id = "typingMessage";
-
-    message.innerHTML = `
-        <div class="message-bubble">
-            <div class="typing">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    `;
-
-    chat.appendChild(message);
-
-    chat.scrollTop = chat.scrollHeight;
+chat.scrollTop =
+chat.scrollHeight;
 
 }
 
 
-function karayelAIReply(question){
+function showTyping(){
 
-    const q = question.toLowerCase();
+const msg =
+document.createElement("div");
 
-    if(
-        q.includes("merhaba") ||
-        q.includes("selam") ||
-        q.includes("hey")
-    ){
+msg.className="msg ai";
 
-        return "Merhaba! 👋 Ben Karayel AI. Sana yazılım, web sitesi, uygulama fikirleri, kodlama ve birçok konuda yardımcı olabilirim.";
+msg.id="typing";
 
-    }
+msg.innerHTML=`
 
-    if(
-        q.includes("html") ||
-        q.includes("web sitesi") ||
-        q.includes("site yap")
-    ){
+<div class="bubble">
+<span style="opacity:.5">●</span>
+<span style="opacity:.7"> ●</span>
+<span style="opacity:.9"> ●</span>
+</div>
 
-        return "Tabii! 💻 HTML, CSS ve JavaScript kullanarak modern web siteleri hazırlayabilirim. Örneğin tek dosyalık index.html projeleri, mobil uyumlu tasarımlar, menüler, uygulama panelleri ve daha fazlasını oluşturabiliriz.";
+`;
 
-    }
+chat.appendChild(msg);
 
-    if(
-        q.includes("uygulama") ||
-        q.includes("program")
-    ){
-
-        return "Harika bir fikir! 🚀 Karayel Yazılım için; fotoğraf editörü, Excel benzeri tablo programı, not defteri, video oynatıcı, PDF araçları, hesap makinesi ve yapay zekâ uygulamaları geliştirebiliriz.";
-
-    }
-
-    if(
-        q.includes("javascript") ||
-        q.includes("js")
-    ){
-
-        return "JavaScript öğrenmeye temel seviyeden başlayabiliriz. Değişkenler → koşullar → döngüler → fonksiyonlar → diziler → DOM → olaylar → API kullanımı şeklinde ilerleyebiliriz.";
-
-    }
-
-    if(
-        q.includes("karayel")
-    ){
-
-        return "Karayel Yazılım 2026'yı büyük bir dijital platforma dönüştürebiliriz. Web uygulamaları, mobil uygulamalar, Windows programları ve Karayel AI gibi projeleri aynı marka altında toplayabiliriz. 🚀";
-
-    }
-
-    if(
-        q.includes("4k") ||
-        q.includes("video")
-    ){
-
-        return "Evet! 🎬 Karayel Video Player gibi bir proje oluşturabiliriz. HTML5 video oynatma, tam ekran, ses kontrolü, altyazı, oynatma hızı, dosya seçme ve mobil uyumluluk gibi özellikler eklenebilir.";
-
-    }
-
-    if(
-        q.includes("fikir") ||
-        q.includes("öner")
-    ){
-
-        return "💡 Birkaç proje fikri: Karayel Video Player, Karayel PDF Araçları, Karayel Dosya Yöneticisi, Karayel AI, Karayel Fotoğraf Editörü, Karayel Hesap Makinesi ve Karayel Office.";
-
-    }
-
-    return "Bunu anladım. 🤖 Şu anda Karayel AI'ın web arayüzü aktif durumda. Gerçek yapay zekâ motoruna bağlandığında sorularını çok daha gelişmiş şekilde cevaplayabilir, kod üretebilir ve projeler oluşturabiliriz.";
+chat.scrollTop =
+chat.scrollHeight;
 
 }
 
+
+function getAIResponse(question){
+
+const q =
+question.toLowerCase();
+
+
+if(
+q.includes("merhaba") ||
+q.includes("selam")
+){
+
+return `Merhaba! 👋
+
+Ben Karayel AI.
+
+Karayel Yazılım projelerinde sana
+yardımcı olmaktan memnuniyet duyarım.`;
+
+}
+
+
+if(
+q.includes("html") ||
+q.includes("web sitesi")
+){
+
+return `Elbette! 💻
+
+HTML, CSS ve JavaScript kullanarak
+modern ve mobil uyumlu web siteleri
+hazırlayabiliriz.
+
+İstersen tek dosyalık index.html
+şeklinde komple proje de oluşturabiliriz.`;
+
+}
+
+
+if(
+q.includes("uygulama") ||
+q.includes("program")
+){
+
+return `Harika! 🚀
+
+Karayel Yazılım için;
+
+• Fotoğraf editörü
+• Video oynatıcı
+• PDF araçları
+• Excel benzeri tablo programı
+• Not defteri
+• Hesap makinesi
+• Dosya yöneticisi
+• Karayel AI
+
+gibi birçok uygulama geliştirebiliriz.`;
+
+}
+
+
+if(
+q.includes("javascript") ||
+q.includes("js")
+){
+
+return `JavaScript öğrenmek için şu sırayı
+takip edebiliriz:
+
+1. Değişkenler
+2. Koşullar
+3. Döngüler
+4. Fonksiyonlar
+5. Diziler
+6. DOM
+7. Event'ler
+8. API'ler
+9. Proje geliştirme
+
+İstersen sıfırdan başlayabiliriz. 📚`;
+
+}
+
+
+if(
+q.includes("4k") ||
+q.includes("video")
+){
+
+return `Evet! 🎬
+
+Karayel Video Player yapabiliriz.
+
+Örneğin:
+
+• 4K video desteği
+• Tam ekran
+• Ses kontrolü
+• Altyazı
+• Oynatma hızı
+• Video dosyası seçme
+• Mobil uyumluluk
+• Klavye kontrolleri
+
+ekleyebiliriz.`;
+
+}
+
+
+if(
+q.includes("karayel")
+){
+
+return `Karayel Yazılım 2026'yı büyük bir
+dijital platforma dönüştürebiliriz. 🚀
+
+Web uygulamaları, mobil uygulamalar,
+Windows programları ve yapay zekâ
+projelerini tek çatı altında
+toplayabiliriz.`;
+
+}
+
+
+if(
+q.includes("fikir") ||
+q.includes("öner")
+){
+
+return `💡 Birkaç proje fikri:
+
+1. Karayel Video Player
+2. Karayel PDF
+3. Karayel Dosya Yöneticisi
+4. Karayel Office
+5. Karayel Fotoğraf Editörü
+6. Karayel AI
+7. Karayel Müzik Player
+8. Karayel Bulut
+9. Karayel Çeviri
+10. Karayel Eğitim`;
+
+}
+
+
+return `Sorunu aldım. 🤖
+
+Şu anda bu sayfadaki Karayel AI
+arayüzü demo cevap sistemiyle çalışıyor.
+
+Bir sonraki aşamada gerçek bir yapay
+zekâ API'sine bağlayarak çok daha
+gelişmiş cevaplar verebilir hale
+getirebiliriz.`;
+
+}
+
+
+/* MESAJ GÖNDER */
 
 aiForm.addEventListener("submit",(e)=>{
 
-    e.preventDefault();
+e.preventDefault();
 
-    const question = aiInput.value.trim();
+const text =
+aiInput.value.trim();
 
-    if(!question) return;
+if(!text) return;
 
-    addMessage(question,"user");
+addMessage(text,"user");
 
-    aiInput.value = "";
+aiInput.value="";
 
-    addTyping();
+showTyping();
 
-    setTimeout(()=>{
+setTimeout(()=>{
 
-        const typing =
-            document.getElementById("typingMessage");
+const typing =
+document.getElementById("typing");
 
-        if(typing){
-            typing.remove();
-        }
+if(typing)
+typing.remove();
 
-        addMessage(
-            karayelAIReply(question),
-            "ai"
-        );
+const response =
+getAIResponse(text);
 
-    },700);
+addMessage(response,"ai");
+
+},700);
 
 });
 
 
-/* QUICK PROMPTS */
+/* HIZLI SORULAR */
 
-document.querySelectorAll(".quick-prompts button")
+document.querySelectorAll(".quick button")
 .forEach(button=>{
 
-    button.addEventListener("click",()=>{
+button.addEventListener("click",()=>{
 
-        aiInput.value = button.dataset.prompt;
+aiInput.value =
+button.dataset.prompt;
 
-        aiInput.focus();
+aiInput.focus();
 
-    });
+});
 
 });
 
 
-/* CLEAR AI */
+/* TEMİZLE */
 
 clearChat.addEventListener("click",()=>{
 
-    chat.innerHTML = `
-        <div class="message ai">
-            <div class="message-bubble">
-                👋 Sohbet temizlendi.
+chat.innerHTML=`
 
-                Ben Karayel AI.
-                Sana nasıl yardımcı olabilirim?
-            </div>
-        </div>
-    `;
+<div class="msg ai">
 
-});
+<div class="bubble">
+👋 Sohbet temizlendi.
 
+Ben Karayel AI.
+Nasıl yardımcı olabilirim?
+</div>
 
-/* TEXTAREA AUTO SIZE */
+</div>
 
-aiInput.addEventListener("input",()=>{
-
-    aiInput.style.height = "auto";
-
-    aiInput.style.height =
-        Math.min(aiInput.scrollHeight,130) + "px";
+`;
 
 });
 
 
-/* ENTER TO SEND */
+/* ENTER */
 
 aiInput.addEventListener("keydown",(e)=>{
 
-    if(
-        e.key==="Enter" &&
-        !e.shiftKey &&
-        window.innerWidth > 600
-    ){
+if(
+e.key==="Enter" &&
+!e.shiftKey &&
+window.innerWidth>600
+){
 
-        e.preventDefault();
+e.preventDefault();
 
-        aiForm.requestSubmit();
+aiForm.requestSubmit();
 
-    }
+}
+
+});
+
+
+/* TEXTAREA */
+
+aiInput.addEventListener("input",()=>{
+
+aiInput.style.height="auto";
+
+aiInput.style.height =
+Math.min(aiInput.scrollHeight,130)+"px";
+
+});
+
+
+/* =========================
+   YUKARI ÇIK
+========================= */
+
+const topButton =
+document.getElementById("top");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>500){
+
+topButton.style.display="block";
+
+}else{
+
+topButton.style.display="none";
+
+}
+
+});
+
+
+topButton.addEventListener("click",()=>{
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 
 });
 
