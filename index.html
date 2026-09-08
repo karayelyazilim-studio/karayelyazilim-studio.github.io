@@ -1,1 +1,507 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07111f">
 
+<title>Karayel Yazılım 2026</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#07111f;
+    color:#fff;
+    min-height:100vh;
+}
+
+/* ÜST MENÜ */
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(7,17,31,.94);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav-inner{
+    max-width:1150px;
+    margin:auto;
+    padding:16px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:.5px;
+}
+
+.logo span{
+    color:#38bdf8;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    color:#dbeafe;
+    text-decoration:none;
+    font-size:15px;
+}
+
+.nav-links a:hover{
+    color:#38bdf8;
+}
+
+/* HERO */
+.hero{
+    max-width:1150px;
+    margin:auto;
+    padding:90px 20px 70px;
+    text-align:center;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 15px;
+    border-radius:30px;
+    background:rgba(56,189,248,.12);
+    border:1px solid rgba(56,189,248,.25);
+    color:#7dd3fc;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(42px,8vw,76px);
+    line-height:1;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#38bdf8;
+}
+
+.hero p{
+    max-width:650px;
+    margin:auto;
+    color:#94a3b8;
+    font-size:18px;
+    line-height:1.7;
+}
+
+.buttons{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 24px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.btn-primary{
+    background:#0ea5e9;
+    color:white;
+}
+
+.btn-primary:hover{
+    transform:translateY(-2px);
+    background:#0284c7;
+}
+
+.btn-secondary{
+    border:1px solid #334155;
+    color:#e2e8f0;
+}
+
+.btn-secondary:hover{
+    background:#111d30;
+}
+
+/* UYGULAMALAR */
+.section{
+    max-width:1150px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#94a3b8;
+}
+
+.apps{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.card{
+    background:linear-gradient(145deg,#101d30,#0b1626);
+    border:1px solid #1e334d;
+    border-radius:20px;
+    padding:28px;
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#38bdf8;
+}
+
+.icon{
+    width:60px;
+    height:60px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    background:#16283e;
+    border-radius:16px;
+    margin-bottom:20px;
+}
+
+.card h3{
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#94a3b8;
+    line-height:1.6;
+    margin-bottom:20px;
+}
+
+.card-button{
+    display:inline-block;
+    padding:11px 18px;
+    background:#16283e;
+    color:#7dd3fc;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+/* HAKKIMIZDA */
+.about{
+    background:#0b1727;
+    border-top:1px solid #17283d;
+    border-bottom:1px solid #17283d;
+}
+
+.about-box{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+}
+
+.about-box p{
+    color:#94a3b8;
+    line-height:1.8;
+    font-size:17px;
+}
+
+/* İLETİŞİM */
+.contact{
+    text-align:center;
+}
+
+.contact-box{
+    max-width:650px;
+    margin:auto;
+    background:#101d30;
+    border:1px solid #1e334d;
+    padding:35px;
+    border-radius:22px;
+}
+
+.contact-box p{
+    color:#94a3b8;
+    margin:15px 0 25px;
+}
+
+/* FOOTER */
+footer{
+    border-top:1px solid #17283d;
+    text-align:center;
+    padding:30px 20px;
+    color:#64748b;
+}
+
+footer strong{
+    color:#94a3b8;
+}
+
+/* MOBİL */
+@media(max-width:700px){
+
+    .nav-inner{
+        padding:14px 16px;
+    }
+
+    .logo{
+        font-size:18px;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        padding:65px 18px 55px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .section{
+        padding:45px 16px;
+    }
+
+    .apps{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        padding:23px;
+    }
+
+    .section-title h2{
+        font-size:29px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENÜ -->
+<nav class="navbar">
+    <div class="nav-inner">
+
+        <div class="logo">
+            Karayel<span> Yazılım</span> 2026
+        </div>
+
+        <div class="nav-links">
+            <a href="#anasayfa">Ana Sayfa</a>
+            <a href="#uygulamalar">Uygulamalar</a>
+            <a href="#hakkimizda">Hakkımızda</a>
+            <a href="#iletisim">İletişim</a>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- ANA SAYFA -->
+<section class="hero" id="anasayfa">
+
+    <div class="badge">
+        🚀 Karayel Yazılım 2026
+    </div>
+
+    <h1>
+        Dijital dünyaya<br>
+        <span>Hoş Geldiniz</span>
+    </h1>
+
+    <p>
+        Karayel Yazılım tarafından geliştirilen
+        kullanışlı, modern ve mobil uyumlu
+        uygulamaları keşfedin.
+    </p>
+
+    <div class="buttons">
+        <a href="#uygulamalar" class="btn btn-primary">
+            Uygulamaları Keşfet
+        </a>
+
+        <a href="#hakkimizda" class="btn btn-secondary">
+            Hakkımızda
+        </a>
+    </div>
+
+</section>
+
+
+<!-- UYGULAMALAR -->
+<section class="section" id="uygulamalar">
+
+    <div class="section-title">
+        <h2>Uygulamalarımız</h2>
+        <p>Karayel Yazılım tarafından geliştirilen projeler</p>
+    </div>
+
+    <div class="apps">
+
+        <div class="card">
+            <div class="icon">🖼️</div>
+
+            <h3>Karayel Fotoğraf Editörü</h3>
+
+            <p>
+                Fotoğraflarınızı kolayca düzenleyin,
+                filtreler uygulayın ve kendi tasarımlarınızı oluşturun.
+            </p>
+
+            <a href="#" class="card-button">
+                Yakında →
+            </a>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">📊</div>
+
+            <h3>Karayel Excel 2026</h3>
+
+            <p>
+                Tablolarınızı oluşturun, hesaplamalar yapın
+                ve verilerinizi düzenli şekilde yönetin.
+            </p>
+
+            <a href="#" class="card-button">
+                Yakında →
+            </a>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">📝</div>
+
+            <h3>Karayel Not Defteri</h3>
+
+            <p>
+                Notlarınızı oluşturun, düzenleyin ve
+                önemli bilgilerinizi kolayca saklayın.
+            </p>
+
+            <a href="#" class="card-button">
+                Yakında →
+            </a>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">📿</div>
+
+            <h3>Karayel Zikirmatik</h3>
+
+            <p>
+                Zikirlerinizi takip edin, kayıtlarınızı
+                saklayın ve günlük kullanımınızı kolaylaştırın.
+            </p>
+
+            <a href="#" class="card-button">
+                Yakında →
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HAKKIMIZDA -->
+<section class="about" id="hakkimizda">
+
+    <div class="section">
+
+        <div class="about-box">
+
+            <div class="section-title">
+                <h2>Karayel Yazılım</h2>
+            </div>
+
+            <p>
+                Karayel Yazılım 2026, kullanıcıların günlük
+                hayatını kolaylaştıracak modern ve kullanışlı
+                dijital projeler geliştirmeyi amaçlayan bir
+                yazılım platformudur.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- İLETİŞİM -->
+<section class="section contact" id="iletisim">
+
+    <div class="section-title">
+        <h2>İletişim</h2>
+        <p>Karayel Yazılım ile iletişime geçin.</p>
+    </div>
+
+    <div class="contact-box">
+
+        <h3>📩 Bize Ulaşın</h3>
+
+        <p>
+            Uygulamalarımız ve projelerimiz hakkında
+            daha fazla bilgi için bizimle iletişime geçebilirsiniz.
+        </p>
+
+        <a href="mailto:iletisim@karayelyazilim.com"
+           class="btn btn-primary">
+            E-posta Gönder
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <p>
+        © 2026 <strong>Karayel Yazılım</strong>
+    </p>
+
+    <p style="margin-top:8px;">
+        Tüm hakları saklıdır.
+    </p>
+
+</footer>
+
+
+</body>
+          </html>
