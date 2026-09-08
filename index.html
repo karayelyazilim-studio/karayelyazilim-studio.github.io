@@ -4,32 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#07111f">
-<meta name="description" content="Karayel Yazılım 2026 - Ücretsiz dijital araçlar, programlar ve uygulamalar.">
-<meta name="keywords" content="Karayel Yazılım, programlar, ücretsiz araçlar, uygulamalar, bilgisayar programları">
-
+<meta name="description" content="Karayel Yazılım 2026 - Modern, kullanışlı ve yenilikçi dijital uygulamalar.">
 <title>Karayel Yazılım 2026</title>
 
 <style>
-:root{
-    --bg:#050b14;
-    --bg2:#081321;
-    --card:rgba(15,27,45,.78);
-    --card2:#101f34;
-    --text:#f5f8ff;
-    --muted:#94a7bd;
-    --line:rgba(255,255,255,.09);
-    --primary:#36a3ff;
-    --primary2:#7167ff;
-    --green:#2ee69a;
-    --orange:#ffae42;
-    --danger:#ff5c7a;
-    --shadow:0 20px 60px rgba(0,0,0,.35);
-}
-
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
+    -webkit-tap-highlight-color:transparent;
 }
 
 html{
@@ -38,13 +21,16 @@ html{
 
 body{
     font-family:Arial,Helvetica,sans-serif;
-    background:
-        radial-gradient(circle at 10% 10%,rgba(54,163,255,.12),transparent 28%),
-        radial-gradient(circle at 90% 20%,rgba(113,103,255,.12),transparent 30%),
-        linear-gradient(180deg,var(--bg),var(--bg2));
-    color:var(--text);
-    min-height:100vh;
+    background:#07111f;
+    color:#eef4ff;
+    line-height:1.6;
     overflow-x:hidden;
+    transition:.3s;
+}
+
+body.light{
+    background:#f3f7fc;
+    color:#172033;
 }
 
 a{
@@ -52,823 +38,748 @@ a{
     text-decoration:none;
 }
 
-button,
-input{
+button,input,textarea{
     font:inherit;
 }
 
-/* TOP BAR */
-
-.topbar{
-    height:34px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:linear-gradient(90deg,#07182a,#101534,#07182a);
-    border-bottom:1px solid var(--line);
-    color:#b9c9db;
-    font-size:12px;
-    letter-spacing:.4px;
+:root{
+    --bg:#07111f;
+    --card:#0d1b2e;
+    --card2:#10233b;
+    --text:#eef4ff;
+    --muted:#9caec4;
+    --primary:#4285ff;
+    --secondary:#8b5cf6;
+    --border:rgba(255,255,255,.09);
+    --shadow:0 20px 60px rgba(0,0,0,.28);
 }
 
-/* HEADER */
+body.light{
+    --bg:#f3f7fc;
+    --card:#ffffff;
+    --card2:#edf3fb;
+    --text:#172033;
+    --muted:#607089;
+    --border:rgba(20,40,70,.12);
+    --shadow:0 15px 45px rgba(30,50,80,.12);
+}
 
-header{
-    position:sticky;
+/* NAVBAR */
+
+.navbar{
+    position:fixed;
     top:0;
+    left:0;
+    width:100%;
+    height:72px;
     z-index:1000;
+    background:rgba(7,17,31,.88);
     backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-    background:rgba(5,11,20,.82);
-    border-bottom:1px solid var(--line);
+    border-bottom:1px solid var(--border);
 }
 
-.nav{
-    max-width:1250px;
+body.light .navbar{
+    background:rgba(255,255,255,.88);
+}
+
+.nav-inner{
+    max-width:1200px;
+    height:100%;
     margin:auto;
-    height:76px;
     padding:0 22px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:20px;
 }
 
 .logo{
     display:flex;
     align-items:center;
-    gap:12px;
-    cursor:pointer;
-    flex-shrink:0;
-}
-
-.logoIcon{
-    width:45px;
-    height:45px;
-    border-radius:14px;
-    display:grid;
-    place-items:center;
-    font-weight:900;
+    gap:10px;
     font-size:20px;
-    background:linear-gradient(135deg,var(--primary),var(--primary2));
-    box-shadow:0 10px 30px rgba(54,163,255,.25);
+    font-weight:800;
 }
 
-.logoText strong{
-    display:block;
-    font-size:18px;
-    letter-spacing:.4px;
-}
-
-.logoText span{
-    display:block;
-    margin-top:3px;
-    color:var(--muted);
-    font-size:10px;
-    letter-spacing:2px;
-}
-
-.navLinks{
+.logo-icon{
+    width:40px;
+    height:40px;
+    border-radius:12px;
     display:flex;
     align-items:center;
-    gap:5px;
+    justify-content:center;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    box-shadow:0 8px 25px rgba(66,133,255,.25);
 }
 
-.navLinks a{
-    color:#b9c6d6;
-    padding:10px 12px;
-    border-radius:10px;
-    font-size:14px;
-    transition:.25s;
-}
-
-.navLinks a:hover{
-    color:white;
-    background:rgba(255,255,255,.06);
-}
-
-.navActions{
+.nav-links{
     display:flex;
     align-items:center;
     gap:8px;
 }
 
-.iconBtn,
-.menuBtn{
-    width:42px;
-    height:42px;
-    border:1px solid var(--line);
-    background:rgba(255,255,255,.04);
-    color:white;
-    border-radius:12px;
-    cursor:pointer;
-    display:grid;
-    place-items:center;
+.nav-links a,
+.theme-btn{
+    padding:10px 14px;
+    border-radius:10px;
+    color:var(--muted);
     transition:.25s;
+    background:none;
+    border:0;
+    cursor:pointer;
 }
 
-.iconBtn:hover,
-.menuBtn:hover{
-    background:rgba(255,255,255,.1);
-    transform:translateY(-2px);
+.nav-links a:hover,
+.theme-btn:hover{
+    color:var(--text);
+    background:var(--card2);
 }
 
-.menuBtn{
+.menu-btn{
     display:none;
-    font-size:20px;
+    background:none;
+    border:0;
+    color:var(--text);
+    font-size:28px;
+    cursor:pointer;
 }
 
 /* HERO */
 
 .hero{
-    max-width:1250px;
-    margin:auto;
-    padding:82px 22px 55px;
-    display:grid;
-    grid-template-columns:1.25fr .75fr;
+    min-height:100vh;
+    padding:150px 22px 90px;
+    display:flex;
     align-items:center;
-    gap:45px;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(66,133,255,.20),transparent 65%);
+    top:-180px;
+    left:-180px;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:550px;
+    height:550px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(139,92,246,.17),transparent 65%);
+    right:-180px;
+    bottom:-180px;
+}
+
+.hero-content{
+    max-width:1000px;
+    text-align:center;
+    position:relative;
+    z-index:2;
 }
 
 .badge{
     display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:8px 13px;
-    border:1px solid rgba(54,163,255,.25);
-    background:rgba(54,163,255,.08);
-    border-radius:30px;
-    color:#8bcaff;
-    font-size:12px;
-    margin-bottom:20px;
-}
-
-.dot{
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:var(--green);
-    box-shadow:0 0 12px var(--green);
+    padding:8px 14px;
+    border:1px solid rgba(66,133,255,.3);
+    border-radius:50px;
+    background:rgba(66,133,255,.08);
+    color:#76a8ff;
+    font-size:13px;
+    margin-bottom:22px;
 }
 
 .hero h1{
-    font-size:clamp(40px,6vw,76px);
-    line-height:.98;
-    letter-spacing:-3px;
-    max-width:780px;
+    font-size:clamp(42px,7vw,78px);
+    line-height:1.05;
+    font-weight:900;
+    margin-bottom:24px;
 }
 
-.gradientText{
-    background:linear-gradient(90deg,#5ebaff,#8a7cff,#42e5b1);
+.gradient{
+    background:linear-gradient(90deg,#4f8cff,#9d68ff);
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
 }
 
 .hero p{
-    color:var(--muted);
-    max-width:670px;
-    font-size:17px;
-    line-height:1.75;
-    margin:25px 0;
-}
-
-.heroButtons{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-}
-
-.primaryBtn,
-.secondaryBtn{
-    border:0;
-    border-radius:13px;
-    padding:14px 19px;
-    cursor:pointer;
-    transition:.25s;
-    font-weight:700;
-}
-
-.primaryBtn{
-    color:white;
-    background:linear-gradient(135deg,var(--primary),var(--primary2));
-    box-shadow:0 12px 30px rgba(54,163,255,.2);
-}
-
-.secondaryBtn{
-    color:white;
-    background:rgba(255,255,255,.05);
-    border:1px solid var(--line);
-}
-
-.primaryBtn:hover,
-.secondaryBtn:hover{
-    transform:translateY(-3px);
-}
-
-/* HERO VISUAL */
-
-.heroVisual{
-    min-height:350px;
-    position:relative;
-    display:grid;
-    place-items:center;
-}
-
-.orbit{
-    width:290px;
-    height:290px;
-    border-radius:50%;
-    border:1px solid rgba(54,163,255,.15);
-    position:relative;
-    animation:rotate 18s linear infinite;
-}
-
-.orbit:before,
-.orbit:after{
-    content:"";
-    position:absolute;
-    border-radius:50%;
-    border:1px solid rgba(113,103,255,.15);
-}
-
-.orbit:before{
-    inset:30px;
-}
-
-.orbit:after{
-    inset:62px;
-}
-
-.core{
-    position:absolute;
-    inset:90px;
-    border-radius:50%;
-    display:grid;
-    place-items:center;
-    background:linear-gradient(135deg,#173d68,#211f58);
-    border:1px solid rgba(255,255,255,.1);
-    box-shadow:0 0 70px rgba(54,163,255,.22);
-    font-size:42px;
-}
-
-.floatCard{
-    position:absolute;
-    padding:13px 16px;
-    background:rgba(13,25,42,.9);
-    border:1px solid var(--line);
-    border-radius:15px;
-    box-shadow:var(--shadow);
-    backdrop-filter:blur(12px);
-    font-size:12px;
-    animation:float 4s ease-in-out infinite;
-}
-
-.floatCard strong{
-    display:block;
-    font-size:15px;
-    margin-top:4px;
-}
-
-.fc1{top:25px;left:10px;}
-.fc2{top:90px;right:0;animation-delay:1s;}
-.fc3{bottom:40px;left:30px;animation-delay:2s;}
-.fc4{bottom:10px;right:30px;animation-delay:1.5s;}
-
-@keyframes rotate{
-    to{transform:rotate(360deg)}
-}
-
-@keyframes float{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-10px)}
-}
-
-/* SEARCH */
-
-.searchArea{
-    max-width:1000px;
-    margin:0 auto 55px;
-    padding:0 22px;
-}
-
-.searchBox{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    background:rgba(255,255,255,.05);
-    border:1px solid var(--line);
-    border-radius:17px;
-    padding:7px;
-    box-shadow:var(--shadow);
-}
-
-.searchBox span{
-    padding-left:13px;
-    font-size:19px;
-}
-
-.searchBox input{
-    flex:1;
-    min-width:0;
-    background:transparent;
-    border:0;
-    outline:0;
-    color:white;
-    padding:14px 4px;
-}
-
-.searchBox input::placeholder{
-    color:#71849a;
-}
-
-.searchBox button{
-    border:0;
-    color:white;
-    background:linear-gradient(135deg,var(--primary),var(--primary2));
-    border-radius:11px;
-    padding:12px 18px;
-    cursor:pointer;
-}
-
-/* SECTION */
-
-.section{
-    max-width:1250px;
+    max-width:720px;
     margin:auto;
-    padding:35px 22px 70px;
-}
-
-.sectionHeader{
-    display:flex;
-    align-items:end;
-    justify-content:space-between;
-    gap:20px;
-    margin-bottom:24px;
-}
-
-.sectionTitle small{
-    color:#62b9ff;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    font-size:10px;
-}
-
-.sectionTitle h2{
-    margin-top:6px;
-    font-size:31px;
-}
-
-.sectionTitle p{
     color:var(--muted);
-    margin-top:8px;
-    font-size:14px;
+    font-size:18px;
 }
 
-.seeAll{
-    color:#78c4ff;
-    font-size:13px;
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:34px;
+}
+
+.btn{
+    border:0;
     cursor:pointer;
-}
-
-/* CATEGORY */
-
-.categories{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:13px;
-}
-
-.category{
-    padding:20px;
-    border:1px solid var(--line);
-    border-radius:17px;
-    background:rgba(255,255,255,.035);
-    cursor:pointer;
-    transition:.3s;
-}
-
-.category:hover{
-    transform:translateY(-5px);
-    background:rgba(255,255,255,.06);
-    border-color:rgba(54,163,255,.3);
-}
-
-.categoryIcon{
-    width:44px;
-    height:44px;
+    padding:14px 22px;
     border-radius:13px;
-    display:grid;
-    place-items:center;
-    background:rgba(54,163,255,.1);
-    margin-bottom:13px;
-    font-size:20px;
+    font-weight:700;
+    transition:.25s;
 }
 
-.category h3{
-    font-size:16px;
-}
-
-.category p{
-    color:var(--muted);
-    font-size:12px;
-    line-height:1.5;
-    margin-top:6px;
-}
-
-/* PRODUCTS */
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:16px;
-}
-
-.appCard{
-    position:relative;
-    background:linear-gradient(145deg,rgba(16,31,52,.9),rgba(10,20,34,.9));
-    border:1px solid var(--line);
-    border-radius:19px;
-    padding:20px;
-    overflow:hidden;
-    transition:.3s;
-}
-
-.appCard:hover{
-    transform:translateY(-7px);
-    border-color:rgba(54,163,255,.35);
-    box-shadow:0 18px 45px rgba(0,0,0,.28);
-}
-
-.appTop{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-}
-
-.appIcon{
-    width:52px;
-    height:52px;
-    border-radius:15px;
-    display:grid;
-    place-items:center;
-    font-size:24px;
-    background:linear-gradient(135deg,rgba(54,163,255,.18),rgba(113,103,255,.18));
-    border:1px solid rgba(255,255,255,.07);
-}
-
-.tag{
-    font-size:10px;
-    padding:6px 8px;
-    border-radius:8px;
-    background:rgba(46,230,154,.09);
-    color:#62efb3;
-}
-
-.appCard h3{
-    font-size:17px;
-    margin:18px 0 8px;
-}
-
-.appCard p{
-    color:var(--muted);
-    font-size:12px;
-    line-height:1.6;
-    min-height:58px;
-}
-
-.appFooter{
-    margin-top:17px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:10px;
-}
-
-.appFooter button{
-    border:1px solid var(--line);
+.btn-primary{
     color:white;
-    background:rgba(255,255,255,.05);
-    border-radius:9px;
-    padding:8px 11px;
-    cursor:pointer;
-    font-size:11px;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    box-shadow:0 12px 30px rgba(66,133,255,.22);
 }
 
-.appFooter button:hover{
-    background:rgba(255,255,255,.1);
+.btn-primary:hover{
+    transform:translateY(-2px);
 }
 
-.status{
-    color:#7890a7;
-    font-size:10px;
+.btn-secondary{
+    background:var(--card);
+    color:var(--text);
+    border:1px solid var(--border);
 }
 
-/* FEATURE */
-
-.feature{
-    max-width:1250px;
-    margin:20px auto 75px;
-    padding:0 22px;
-}
-
-.featureBox{
-    position:relative;
-    overflow:hidden;
-    border:1px solid rgba(54,163,255,.18);
-    border-radius:25px;
-    padding:38px;
-    background:
-        radial-gradient(circle at 80% 30%,rgba(113,103,255,.16),transparent 30%),
-        radial-gradient(circle at 10% 80%,rgba(54,163,255,.12),transparent 30%),
-        rgba(13,26,44,.85);
-}
-
-.featureBox h2{
-    font-size:30px;
-    max-width:600px;
-}
-
-.featureBox p{
-    color:var(--muted);
-    max-width:620px;
-    line-height:1.7;
-    margin:14px 0 22px;
-}
+/* STATS */
 
 .stats{
-    display:flex;
-    gap:35px;
-    flex-wrap:wrap;
+    max-width:1000px;
+    margin:-25px auto 80px;
+    padding:0 22px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+    position:relative;
+    z-index:5;
+}
+
+.stat{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:25px;
+    text-align:center;
+    box-shadow:var(--shadow);
 }
 
 .stat strong{
-    font-size:27px;
     display:block;
+    font-size:32px;
+    margin-bottom:4px;
 }
 
 .stat span{
     color:var(--muted);
+    font-size:14px;
+}
+
+/* GENERAL */
+
+section{
+    padding:90px 22px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-title h2{
+    font-size:clamp(30px,5vw,45px);
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:var(--muted);
+}
+
+/* SEARCH */
+
+.search-box{
+    max-width:600px;
+    margin:0 auto 35px;
+    position:relative;
+}
+
+.search-box input{
+    width:100%;
+    padding:17px 20px;
+    border-radius:14px;
+    border:1px solid var(--border);
+    outline:none;
+    background:var(--card);
+    color:var(--text);
+}
+
+/* APPS */
+
+.apps-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.app-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:25px;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.app-card:hover{
+    transform:translateY(-7px);
+    box-shadow:var(--shadow);
+    border-color:rgba(66,133,255,.3);
+}
+
+.app-icon{
+    width:58px;
+    height:58px;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    margin-bottom:18px;
+    background:linear-gradient(135deg,rgba(66,133,255,.18),rgba(139,92,246,.18));
+}
+
+.app-card h3{
+    margin-bottom:7px;
+}
+
+.app-card p{
+    color:var(--muted);
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+.status{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:7px;
+    background:rgba(66,133,255,.1);
+    color:#72a5ff;
     font-size:11px;
+    font-weight:bold;
+}
+
+/* KARAYEL AI */
+
+.ai-section{
+    position:relative;
+}
+
+.ai-section::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(circle,rgba(66,133,255,.12),transparent 65%);
+    pointer-events:none;
+}
+
+.ai-box{
+    max-width:1000px;
+    min-height:600px;
+    margin:auto;
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    background:rgba(13,27,46,.82);
+    border:1px solid var(--border);
+    border-radius:26px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+}
+
+body.light .ai-box{
+    background:#fff;
+}
+
+.ai-header{
+    padding:20px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid var(--border);
+}
+
+.ai-brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.ai-logo{
+    width:48px;
+    height:48px;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+}
+
+.ai-brand strong{
+    display:block;
+}
+
+.ai-brand small{
+    color:#5ee6a8;
+}
+
+.ai-clear{
+    border:1px solid var(--border);
+    background:var(--card2);
+    color:var(--text);
+    padding:8px 12px;
+    border-radius:9px;
+    cursor:pointer;
+}
+
+.chat{
+    flex:1;
+    min-height:380px;
+    padding:25px;
+    overflow-y:auto;
+}
+
+.message{
+    display:flex;
+    margin-bottom:18px;
+}
+
+.message.user{
+    justify-content:flex-end;
+}
+
+.message-bubble{
+    max-width:75%;
+    padding:13px 16px;
+    border-radius:16px;
+    font-size:14px;
+    white-space:pre-wrap;
+}
+
+.message.ai .message-bubble{
+    background:var(--card2);
+    border:1px solid var(--border);
+}
+
+.message.user .message-bubble{
+    color:white;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+}
+
+.quick-prompts{
+    padding:0 22px 15px;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.quick-prompts button{
+    border:1px solid var(--border);
+    background:var(--card2);
+    color:var(--muted);
+    padding:8px 11px;
+    border-radius:9px;
+    cursor:pointer;
+    font-size:12px;
+}
+
+.quick-prompts button:hover{
+    color:var(--text);
+}
+
+.ai-input{
+    padding:15px;
+    border-top:1px solid var(--border);
+}
+
+.ai-form{
+    display:flex;
+    gap:10px;
+}
+
+.ai-form textarea{
+    flex:1;
+    resize:none;
+    min-height:52px;
+    max-height:130px;
+    padding:15px;
+    border-radius:14px;
+    border:1px solid var(--border);
+    background:var(--card2);
+    color:var(--text);
+    outline:none;
+}
+
+.send-btn{
+    width:55px;
+    border:0;
+    border-radius:14px;
+    cursor:pointer;
+    color:white;
+    font-size:20px;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+}
+
+.typing{
+    display:flex;
+    gap:4px;
+    padding:5px;
+}
+
+.typing span{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#8fa6c4;
+    animation:typing 1s infinite;
+}
+
+.typing span:nth-child(2){animation-delay:.15s}
+.typing span:nth-child(3){animation-delay:.3s}
+
+@keyframes typing{
+    0%,100%{opacity:.25;transform:translateY(0)}
+    50%{opacity:1;transform:translateY(-3px)}
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.feature{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:25px;
+}
+
+.feature-icon{
+    font-size:28px;
+    margin-bottom:12px;
+}
+
+.feature p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* ABOUT */
+
+.about{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+}
+
+.about p{
+    color:var(--muted);
+    margin-top:15px;
 }
 
 /* CONTACT */
 
-.contact{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
+.contact-card{
+    max-width:750px;
+    margin:auto;
+    text-align:center;
+    padding:40px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:24px;
 }
 
-.contactCard{
-    border:1px solid var(--line);
-    background:rgba(255,255,255,.035);
-    border-radius:20px;
-    padding:25px;
+/* APP SCREEN */
+
+#appScreen{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    background:var(--bg);
+    overflow:auto;
 }
 
-.contactCard h3{
-    margin-bottom:10px;
+.app-screen-header{
+    height:70px;
+    position:sticky;
+    top:0;
+    background:var(--card);
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:0 18px;
+    z-index:10;
 }
 
-.contactCard p{
-    color:var(--muted);
-    line-height:1.7;
-    font-size:13px;
-}
-
-.contactBtn{
-    display:inline-block;
-    margin-top:18px;
-    padding:11px 15px;
+.back-btn{
+    border:1px solid var(--border);
+    background:var(--card2);
+    color:var(--text);
+    padding:9px 14px;
     border-radius:10px;
-    background:rgba(54,163,255,.1);
-    border:1px solid rgba(54,163,255,.2);
-    color:#7cc6ff;
-    font-size:12px;
+    cursor:pointer;
+}
+
+.app-screen-content{
+    max-width:1000px;
+    margin:auto;
+    padding:50px 22px;
+    text-align:center;
+}
+
+.app-screen-content h2{
+    font-size:40px;
+    margin-bottom:12px;
+}
+
+.app-screen-content p{
+    color:var(--muted);
+}
+
+/* TOP */
+
+.top-btn{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
+    cursor:pointer;
+    z-index:900;
+    display:none;
 }
 
 /* FOOTER */
 
 footer{
-    border-top:1px solid var(--line);
-    background:#040912;
-}
-
-.footerInner{
-    max-width:1250px;
-    margin:auto;
-    padding:40px 22px 25px;
-    display:grid;
-    grid-template-columns:1.5fr 1fr 1fr 1fr;
-    gap:30px;
-}
-
-.footerBrand p{
+    border-top:1px solid var(--border);
+    padding:30px 22px;
+    text-align:center;
     color:var(--muted);
-    font-size:12px;
-    line-height:1.7;
-    max-width:350px;
-    margin-top:12px;
-}
-
-.footerCol h4{
     font-size:13px;
-    margin-bottom:13px;
 }
 
-.footerCol a{
-    display:block;
-    color:#8093a8;
-    font-size:12px;
-    margin:9px 0;
+footer strong{
+    color:var(--text);
 }
 
-.footerCol a:hover{
-    color:white;
-}
+/* MOBILE */
 
-.copyright{
-    max-width:1250px;
-    margin:auto;
-    padding:16px 22px 24px;
-    border-top:1px solid var(--line);
-    color:#607287;
-    font-size:10px;
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
-}
-
-/* MOBILE MENU */
-
-.mobileMenu{
-    display:none;
-    padding:10px 22px 20px;
-    border-top:1px solid var(--line);
-}
-
-.mobileMenu a{
-    display:block;
-    padding:12px;
-    border-radius:10px;
-    color:#b9c6d6;
-}
-
-.mobileMenu a:hover{
-    background:rgba(255,255,255,.05);
-}
-
-/* TOAST */
-
-.toast{
-    position:fixed;
-    left:50%;
-    bottom:25px;
-    transform:translate(-50%,30px);
-    opacity:0;
-    pointer-events:none;
-    z-index:5000;
-    background:#132238;
-    border:1px solid var(--line);
-    color:white;
-    padding:13px 18px;
-    border-radius:12px;
-    font-size:12px;
-    box-shadow:var(--shadow);
-    transition:.3s;
-}
-
-.toast.show{
-    opacity:1;
-    transform:translate(-50%,0);
-}
-
-/* RESPONSIVE */
-
-@media(max-width:1050px){
-    .navLinks{
-        display:none;
-    }
-
-    .menuBtn{
-        display:grid;
-    }
-
-    .hero{
-        grid-template-columns:1fr;
-        padding-top:60px;
-    }
-
-    .heroVisual{
-        min-height:300px;
-    }
-
-    .grid{
+@media(max-width:900px){
+    .apps-grid{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .categories{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .footerInner{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-@media(max-width:650px){
-    .topbar{
-        font-size:10px;
-    }
-
-    .nav{
-        height:68px;
-        padding:0 15px;
-    }
-
-    .logoIcon{
-        width:40px;
-        height:40px;
-        border-radius:12px;
-    }
-
-    .logoText strong{
-        font-size:15px;
-    }
-
-    .hero{
-        padding:50px 16px 30px;
-    }
-
-    .hero h1{
-        font-size:43px;
-        letter-spacing:-2px;
-    }
-
-    .hero p{
-        font-size:14px;
-    }
-
-    .heroVisual{
-        min-height:250px;
-        transform:scale(.82);
-    }
-
-    .section{
-        padding-left:16px;
-        padding-right:16px;
-    }
-
-    .searchArea{
-        padding:0 16px;
-    }
-
-    .searchBox button{
-        display:none;
-    }
-
-    .grid{
+    .features{
         grid-template-columns:1fr;
     }
+}
 
-    .categories{
-        grid-template-columns:1fr 1fr;
+@media(max-width:700px){
+    .navbar{
+        height:64px;
     }
 
-    .category{
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:64px;
+        left:0;
+        width:100%;
         padding:15px;
-    }
-
-    .feature{
-        padding:0 16px;
-    }
-
-    .featureBox{
-        padding:25px;
-    }
-
-    .contact{
-        grid-template-columns:1fr;
-    }
-
-    .footerInner{
-        grid-template-columns:1fr 1fr;
-        padding-left:16px;
-        padding-right:16px;
-    }
-
-    .copyright{
-        padding-left:16px;
-        padding-right:16px;
+        background:var(--card);
+        border-bottom:1px solid var(--border);
         flex-direction:column;
+        align-items:stretch;
     }
-}
 
-@media(max-width:400px){
-    .categories{
+    .nav-links.open{
+        display:flex;
+    }
+
+    .nav-links a,
+    .theme-btn{
+        width:100%;
+        text-align:center;
+        padding:13px;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero{
+        padding-top:125px;
+    }
+
+    .stats{
         grid-template-columns:1fr;
+    }
+
+    .apps-grid{
+        grid-template-columns:1fr;
+    }
+
+    .ai-box{
+        min-height:650px;
+        border-radius:20px;
+    }
+
+    .message-bubble{
+        max-width:88%;
+    }
+
+    .ai-header{
+        padding:16px;
+    }
+
+    .quick-prompts{
+        overflow-x:auto;
+        flex-wrap:nowrap;
+    }
+
+    .quick-prompts button{
+        flex-shrink:0;
+    }
+
+    .ai-form textarea{
+        font-size:14px;
     }
 }
 </style>
@@ -876,793 +787,786 @@ footer{
 
 <body>
 
-<div class="topbar">
-    🚀 Karayel Yazılım 2026 • Dijital dünyadaki yeni adresiniz
-</div>
+<!-- NAVBAR -->
 
-<header>
-    <nav class="nav">
+<header class="navbar">
+    <div class="nav-inner">
 
-        <a href="#" class="logo">
-            <div class="logoIcon">K</div>
-            <div class="logoText">
-                <strong>Karayel Yazılım</strong>
-                <span>2026 DIGITAL</span>
-            </div>
+        <a href="#anasayfa" class="logo">
+            <span class="logo-icon">K</span>
+            <span>Karayel Yazılım</span>
         </a>
 
-        <div class="navLinks">
+        <button class="menu-btn" id="menuBtn">☰</button>
+
+        <nav class="nav-links" id="navLinks">
             <a href="#anasayfa">Ana Sayfa</a>
-            <a href="#araclar">Araçlar</a>
-            <a href="#programlar">Programlar</a>
-            <a href="#kategoriler">Kategoriler</a>
+            <a href="#uygulamalar">Uygulamalar</a>
+            <a href="#karayelAI">Karayel AI</a>
+            <a href="#ozellikler">Özellikler</a>
+            <a href="#hakkimizda">Hakkımızda</a>
             <a href="#iletisim">İletişim</a>
-        </div>
+            <button class="theme-btn" id="themeBtn">☀️ Tema</button>
+        </nav>
 
-        <div class="navActions">
-            <button class="iconBtn" onclick="scrollToSearch()" title="Ara">⌕</button>
-            <button class="menuBtn" onclick="toggleMenu()" title="Menü">☰</button>
-        </div>
-
-    </nav>
-
-    <div class="mobileMenu" id="mobileMenu">
-        <a href="#anasayfa" onclick="closeMenu()">Ana Sayfa</a>
-        <a href="#araclar" onclick="closeMenu()">Ücretsiz Araçlar</a>
-        <a href="#programlar" onclick="closeMenu()">Programlar</a>
-        <a href="#kategoriler" onclick="closeMenu()">Kategoriler</a>
-        <a href="#iletisim" onclick="closeMenu()">İletişim</a>
     </div>
 </header>
 
+<!-- HERO -->
 
-<main id="anasayfa">
+<main>
 
-    <!-- HERO -->
+<section class="hero" id="anasayfa">
+    <div class="hero-content">
 
-    <section class="hero">
+        <span class="badge">🚀 KARAYEL YAZILIM 2026</span>
 
-        <div>
-            <div class="badge">
-                <span class="dot"></span>
-                KARAYEL YAZILIM 2026
-            </div>
+        <h1>
+            Dijital dünyada<br>
+            <span class="gradient">yeni bir Karayel</span>
+        </h1>
 
-            <h1>
-                Dijital dünyanın
-                <span class="gradientText">yeni adresi.</span>
-            </h1>
+        <p>
+            Modern, hızlı, kullanışlı ve herkes için geliştirilen
+            yeni nesil dijital uygulamalar.
+        </p>
 
-            <p>
-                Ücretsiz araçlar, kullanışlı programlar ve modern
-                dijital çözümler. Karayel Yazılım ile ihtiyacınız olan
-                araçlara tek bir yerden ulaşın.
-            </p>
+        <div class="hero-buttons">
+            <a href="#uygulamalar" class="btn btn-primary">
+                Uygulamaları Keşfet →
+            </a>
 
-            <div class="heroButtons">
-                <button class="primaryBtn" onclick="scrollToTools()">
-                    🛠️ Araçları Keşfet
-                </button>
-
-                <button class="secondaryBtn" onclick="scrollToPrograms()">
-                    💻 Programlara Bak
-                </button>
-            </div>
+            <a href="#karayelAI" class="btn btn-secondary">
+                🤖 Karayel AI
+            </a>
         </div>
 
-        <div class="heroVisual">
+    </div>
+</section>
 
-            <div class="orbit">
-                <div class="core">K</div>
-            </div>
+<!-- STATS -->
 
-            <div class="floatCard fc1">
-                🛠️ Araçlar
-                <strong>Ücretsiz</strong>
-            </div>
+<div class="stats">
 
-            <div class="floatCard fc2">
-                💻 Programlar
-                <strong>Yeni</strong>
-            </div>
+    <div class="stat">
+        <strong>4+</strong>
+        <span>Uygulama</span>
+    </div>
 
-            <div class="floatCard fc3">
-                📱 Mobil
-                <strong>Uyumlu</strong>
-            </div>
+    <div class="stat">
+        <strong>2026</strong>
+        <span>Yeni Nesil</span>
+    </div>
 
-            <div class="floatCard fc4">
-                ⚡ Hızlı
-                <strong>Modern</strong>
-            </div>
+    <div class="stat">
+        <strong>100%</strong>
+        <span>Karayel Yazılım</span>
+    </div>
 
+</div>
+
+<!-- APPLICATIONS -->
+
+<section id="uygulamalar">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Uygulamalarımız</h2>
+            <p>Karayel Yazılım tarafından geliştirilen uygulamalar.</p>
         </div>
 
-    </section>
-
-
-    <!-- SEARCH -->
-
-    <div class="searchArea" id="arama">
-
-        <div class="searchBox">
-            <span>🔎</span>
-
+        <div class="search-box">
             <input
-                id="searchInput"
                 type="search"
-                placeholder="Araç, program veya uygulama ara..."
-                oninput="searchApps()"
+                id="appSearch"
+                placeholder="🔎 Uygulama ara..."
             >
+        </div>
 
-            <button onclick="searchApps()">Ara</button>
+        <div class="apps-grid" id="appsGrid">
+
+            <div class="app-card" data-name="fotoğraf editörü foto editör">
+                <div class="app-icon">🖼️</div>
+                <h3>Karayel Fotoğraf Editörü</h3>
+                <p>Fotoğraflarınızı kolayca düzenleyin.</p>
+                <span class="status">YAKINDA</span>
+            </div>
+
+            <div class="app-card" data-name="excel karayel excel 2026 tablo">
+                <div class="app-icon">📊</div>
+                <h3>Karayel Excel 2026</h3>
+                <p>Tablolarınızı ve verilerinizi yönetin.</p>
+                <span class="status">YAKINDA</span>
+            </div>
+
+            <div class="app-card" data-name="not defteri metin yazı">
+                <div class="app-icon">📝</div>
+                <h3>Karayel Not Defteri</h3>
+                <p>Notlarınızı hızlı ve düzenli şekilde tutun.</p>
+                <span class="status">YAKINDA</span>
+            </div>
+
+            <div class="app-card" data-name="zikirmatik zikir dini">
+                <div class="app-icon">📿</div>
+                <h3>Karayel Zikirmatik</h3>
+                <p>Modern ve kullanışlı zikir uygulaması.</p>
+                <span class="status">YAKINDA</span>
+            </div>
+
         </div>
 
     </div>
 
+</section>
 
-    <!-- CATEGORIES -->
+<!-- KARAYEL AI -->
 
-    <section class="section" id="kategoriler">
+<section class="ai-section" id="karayelAI">
 
-        <div class="sectionHeader">
-            <div class="sectionTitle">
-                <small>Kategoriler</small>
-                <h2>İhtiyacını seç</h2>
-                <p>Karayel dünyasındaki araçları kategorilere göre keşfet.</p>
-            </div>
+    <div class="container">
+
+        <div class="section-title">
+            <span class="badge">🤖 YENİ</span>
+            <h2>Karayel AI</h2>
+            <p>
+                Karayel Yazılım'ın yapay zekâ asistanı.
+                Sor, üret, öğren ve geliştir.
+            </p>
         </div>
 
-        <div class="categories">
+        <div class="ai-box">
 
-            <div class="category" onclick="filterCategory('ofis')">
-                <div class="categoryIcon">📊</div>
-                <h3>Ofis</h3>
-                <p>Not, tablo, hesaplama ve belge araçları.</p>
+            <div class="ai-header">
+
+                <div class="ai-brand">
+
+                    <div class="ai-logo">🤖</div>
+
+                    <div>
+                        <strong>Karayel AI</strong>
+                        <small>● Çevrimiçi</small>
+                    </div>
+
+                </div>
+
+                <button class="ai-clear" id="clearChat">
+                    Temizle
+                </button>
+
             </div>
 
-            <div class="category" onclick="filterCategory('medya')">
-                <div class="categoryIcon">🎬</div>
-                <h3>Medya</h3>
-                <p>Fotoğraf, video ve ses araçları.</p>
+            <div class="chat" id="chat">
+
+                <div class="message ai">
+                    <div class="message-bubble">
+                        👋 Merhaba! Ben <strong>Karayel AI</strong>.
+
+                        Bana bir soru sorabilir, proje fikri isteyebilir,
+                        HTML/CSS/JavaScript kodu hazırlatabilir veya bir
+                        konuda yardım isteyebilirsin.
+
+                        Nasıl yardımcı olabilirim?
+                    </div>
+                </div>
+
             </div>
 
-            <div class="category" onclick="filterCategory('arac')">
-                <div class="categoryIcon">🛠️</div>
-                <h3>Ücretsiz Araçlar</h3>
-                <p>Günlük işleriniz için pratik araçlar.</p>
+            <div class="quick-prompts">
+
+                <button data-prompt="Bana modern bir HTML sitesi yap.">
+                    💻 HTML sitesi
+                </button>
+
+                <button data-prompt="Bana bir uygulama fikri ver.">
+                    💡 Uygulama fikri
+                </button>
+
+                <button data-prompt="JavaScript öğrenmek istiyorum. Nereden başlayayım?">
+                    📚 JavaScript
+                </button>
+
+                <button data-prompt="Bana Karayel Yazılım için bir proje fikri ver.">
+                    🚀 Proje fikri
+                </button>
+
             </div>
 
-            <div class="category" onclick="filterCategory('sofor')">
-                <div class="categoryIcon">🚛</div>
-                <h3>Şoför Araçları</h3>
-                <p>Yakıt, kilometre ve sefer hesaplamaları.</p>
+            <div class="ai-input">
+
+                <form class="ai-form" id="aiForm">
+
+                    <textarea
+                        id="aiInput"
+                        rows="1"
+                        placeholder="Karayel AI'a bir şey sor..."
+                    ></textarea>
+
+                    <button class="send-btn" type="submit">
+                        ➤
+                    </button>
+
+                </form>
+
             </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- TOOLS -->
-
-    <section class="section" id="araclar">
-
-        <div class="sectionHeader">
-            <div class="sectionTitle">
-                <small>Karayel Araçlar</small>
-                <h2>Ücretsiz araçlar</h2>
-                <p>Her gün kullanabileceğiniz pratik dijital araçlar.</p>
-            </div>
-
-            <span class="seeAll" onclick="showAll()">Tümünü göster →</span>
-        </div>
-
-        <div class="grid" id="appGrid">
-
-            <article class="appCard" data-name="Karayel Not Defteri" data-category="ofis">
-                <div class="appTop">
-                    <div class="appIcon">📝</div>
-                    <span class="tag">ÜCRETSİZ</span>
-                </div>
-
-                <h3>Karayel Not Defteri</h3>
-
-                <p>
-                    Notlarınızı yazın, düzenleyin ve kolayca saklayın.
-                </p>
-
-                <div class="appFooter">
-                    <span class="status">● Hazır</span>
-                    <button onclick="openApp('Karayel Not Defteri')">Aç</button>
-                </div>
-            </article>
-
-
-            <article class="appCard" data-name="Karayel Hesap Makinesi" data-category="arac">
-                <div class="appTop">
-                    <div class="appIcon">🧮</div>
-                    <span class="tag">ÜCRETSİZ</span>
-                </div>
-
-                <h3>Hesap Makinesi</h3>
-
-                <p>
-                    Günlük hesaplamalarınızı hızlı ve kolay şekilde yapın.
-                </p>
-
-                <div class="appFooter">
-                    <span class="status">● Hazır</span>
-                    <button onclick="openApp('Hesap Makinesi')">Aç</button>
-                </div>
-            </article>
-
-
-            <article class="appCard" data-name="Karayel Fotoğraf Editörü" data-category="medya">
-                <div class="appTop">
-                    <div class="appIcon">🖼️</div>
-                    <span class="tag">YENİ</span>
-                </div>
-
-                <h3>Fotoğraf Editörü</h3>
-
-                <p>
-                    Fotoğraflarınızı kırpın, döndürün, filtreleyin ve düzenleyin.
-                </p>
-
-                <div class="appFooter">
-                    <span class="status">● Hazır</span>
-                    <button onclick="openApp('Fotoğraf Editörü')">Aç</button>
-                </div>
-            </article>
-
-
-            <article class="appCard" data-name="Karayel QR Kod" data-category="arac">
-                <div class="appTop">
-                    <div class="appIcon">▦</div>
-                    <span class="tag">ÜCRETSİZ</span>
-                </div>
-
-                <h3>QR Kod Oluşturucu</h3>
-
-                <p>
-                    Metin, bağlantı ve iletişim bilgileri için QR kod oluşturun.
-                </p>
-
-                <div class="appFooter">
-                    <span class="status">● Hazır</span>
-                    <button onclick="openApp('QR Kod Oluşturucu')">Aç</button>
-                </div>
-            </article>
-
-
-            <article class="appCard" data-name="Karayel Renk Seçici" data-category="arac">
-                <div class="appTop">
-                    <div class="appIcon">🎨</div>
-                    <span class="tag">ÜCRETSİZ</span>
-                </div>
-
-                <h3>Renk Seçici</h3>
-
-                <p>
-                    HEX, RGB ve HSL renk değerlerini kolayca bulun.
-                </p>
-
-                <div class="appFooter">
-                    <span class="status">● Hazır</span>
-                    <button onclick="openApp('Renk Seçici')">Aç</button>
-                </div>
-            </article>
-
-
-            <article class="appCard" data-name="Karayel Yakıt Hesaplama" data-category="sofor">
-                <div class="appTop">
-                    <div class="appIcon">⛽</div>
-                    <span class="tag">ŞOFÖR</span>
-                </div>
-
-                <h3>Yakıt Hesaplama</h3>
-
-                <p>
-                    Mesafe, tüketim ve yakıt fiyatına göre maliyet hesaplayın.
-                </p>
-
-                <div class="appFooter">
-                    <span class="status">● Hazır</span>
-                    <button onclick="openApp('Yakıt Hesaplama')">Aç</button>
-                </div>
-            </article>
-
-
-            <article class="appCard" data-name="Karayel Alan Hesaplama" data-category="arac">
-                <div class="appTop">
-                    <div class="appIcon">📐</div>
-                    <span class="tag">YENİ</span>
-                </div>
-
-                <h3>Alan Hesaplama</h3>
-
-                <p>
-                    Dikdörtgen, kare, üçgen ve farklı şekillerin alanını hesaplayın.
-                </p>
-
-                <div class="appFooter">
-                    <span class="status">● Hazır</span>
-                    <button onclick="openApp('Alan Hesaplama')">Aç</button>
-                </div>
-            </article>
-
-
-            <article class="appCard" data-name="Karayel Video Oynatıcı" data-category="medya">
-                <div class="appTop">
-                    <div class="appIcon">🎬</div>
-                    <span class="tag">YENİ</span>
-                </div>
-
-                <h3>4K Video Player</h3>
-
-                <p>
-                    Modern arayüzlü video oynatıcı projemizi yakında burada kullanın.
-                </p>
-
-                <div class="appFooter">
-                    <span class="status">● Yakında</span>
-                    <button onclick="openApp('4K Video Player')">Bilgi</button>
-                </div>
-            </article>
 
         </div>
 
-    </section>
+    </div>
 
+</section>
 
-    <!-- PROGRAMS -->
+<!-- FEATURES -->
 
-    <section class="section" id="programlar">
+<section id="ozellikler">
 
-        <div class="sectionHeader">
-            <div class="sectionTitle">
-                <small>Karayel Programları</small>
-                <h2>Bilgisayar programları</h2>
-                <p>Windows için geliştirdiğimiz profesyonel uygulamalar.</p>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Neden Karayel Yazılım?</h2>
+            <p>Basitlik ve güçlü teknolojiyi bir araya getiriyoruz.</p>
+        </div>
+
+        <div class="features">
+
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <h3>Mobil Uyumlu</h3>
+                <p>
+                    Telefon, tablet ve bilgisayarlarda
+                    rahatlıkla kullanılabilir.
+                </p>
             </div>
-        </div>
 
-        <div class="grid">
-
-            <article class="appCard">
-                <div class="appTop">
-                    <div class="appIcon">📊</div>
-                    <span class="tag">PROJE</span>
-                </div>
-
-                <h3>Karayel Excel 2026</h3>
-
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>Hızlı</h3>
                 <p>
-                    Tablo, hesaplama, formül ve grafik özelliklerine sahip ofis uygulaması.
+                    Gereksiz karmaşıklıklardan uzak,
+                    hızlı ve akıcı deneyim.
                 </p>
+            </div>
 
-                <div class="appFooter">
-                    <span class="status">Windows</span>
-                    <button onclick="openApp('Karayel Excel 2026')">Detay</button>
-                </div>
-            </article>
-
-
-            <article class="appCard">
-                <div class="appTop">
-                    <div class="appIcon">🖼️</div>
-                    <span class="tag">PROJE</span>
-                </div>
-
-                <h3>Karayel Fotoğraf Editörü</h3>
-
+            <div class="feature">
+                <div class="feature-icon">🎨</div>
+                <h3>Modern Tasarım</h3>
                 <p>
-                    Fotoğraf düzenleme, filtreleme ve tasarım araçları.
+                    Modern, sade ve kullanıcı odaklı
+                    arayüzler.
                 </p>
+            </div>
 
-                <div class="appFooter">
-                    <span class="status">Windows</span>
-                    <button onclick="openApp('Karayel Fotoğraf Editörü')">Detay</button>
-                </div>
-            </article>
-
-
-            <article class="appCard">
-                <div class="appTop">
-                    <div class="appIcon">🎬</div>
-                    <span class="tag">PROJE</span>
-                </div>
-
-                <h3>Karayel 4K Player</h3>
-
+            <div class="feature">
+                <div class="feature-icon">👤</div>
+                <h3>Kullanıcı Odaklı</h3>
                 <p>
-                    Modern arayüzlü masaüstü video oynatıcı.
+                    Gerçek kullanıcı ihtiyaçlarına
+                    göre geliştirilen uygulamalar.
                 </p>
+            </div>
 
-                <div class="appFooter">
-                    <span class="status">Windows</span>
-                    <button onclick="openApp('Karayel 4K Player')">Detay</button>
-                </div>
-            </article>
-
-
-            <article class="appCard">
-                <div class="appTop">
-                    <div class="appIcon">📐</div>
-                    <span class="tag">PROJE</span>
-                </div>
-
-                <h3>Karayel CAD 2026</h3>
-
+            <div class="feature">
+                <div class="feature-icon">🌙</div>
+                <h3>Koyu / Açık Tema</h3>
                 <p>
-                    2D teknik çizim ve mimari proje uygulaması.
+                    Tercihinize göre karanlık veya
+                    aydınlık görünüm.
                 </p>
+            </div>
 
-                <div class="appFooter">
-                    <span class="status">Geliştiriliyor</span>
-                    <button onclick="openApp('Karayel CAD 2026')">Detay</button>
-                </div>
-            </article>
+            <div class="feature">
+                <div class="feature-icon">🚀</div>
+                <h3>Sürekli Gelişim</h3>
+                <p>
+                    Karayel Yazılım her gün yeni
+                    özelliklerle gelişiyor.
+                </p>
+            </div>
 
         </div>
 
-    </section>
+    </div>
 
+</section>
 
-    <!-- FEATURE -->
+<!-- ABOUT -->
 
-    <section class="feature">
+<section id="hakkimizda">
 
-        <div class="featureBox">
+    <div class="container">
 
-            <h2>
-                Karayel Yazılım ile
-                kendi dijital dünyanı oluştur.
-            </h2>
+        <div class="about">
+
+            <div class="section-title">
+                <h2>Karayel Yazılım</h2>
+            </div>
 
             <p>
-                Amacımız herkesin kolayca kullanabileceği,
-                hızlı ve modern dijital araçları tek bir platformda
-                buluşturmak.
+                Karayel Yazılım, kullanıcıların günlük hayatını
+                kolaylaştıracak modern dijital uygulamalar geliştirme
+                amacıyla oluşturulmuş yeni nesil bir yazılım markasıdır.
             </p>
 
-            <div class="stats">
-
-                <div class="stat">
-                    <strong>2026</strong>
-                    <span>Yeni nesil</span>
-                </div>
-
-                <div class="stat">
-                    <strong>7/24</strong>
-                    <span>Erişim</span>
-                </div>
-
-                <div class="stat">
-                    <strong>∞</strong>
-                    <span>Yeni proje</span>
-                </div>
-
-            </div>
+            <p>
+                2026 yılında yeni projeler, yapay zekâ teknolojileri,
+                mobil uygulamalar ve bilgisayar yazılımlarıyla
+                büyümeye devam ediyor.
+            </p>
 
         </div>
 
-    </section>
+    </div>
 
+</section>
 
-    <!-- CONTACT -->
+<!-- CONTACT -->
 
-    <section class="section" id="iletisim">
+<section id="iletisim">
 
-        <div class="sectionHeader">
-            <div class="sectionTitle">
-                <small>Karayel Yazılım</small>
-                <h2>Bizimle iletişime geç</h2>
-                <p>Önerilerinizi ve fikirlerinizi paylaşabilirsiniz.</p>
-            </div>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>İletişim</h2>
+            <p>Karayel Yazılım ile iletişime geçin.</p>
         </div>
 
-        <div class="contact">
+        <div class="contact-card">
 
-            <div class="contactCard">
-                <h3>💡 Bir fikrin mi var?</h3>
+            <h3>📧 Bize Ulaşın</h3>
 
-                <p>
-                    Karayel Yazılım'a eklenmesini istediğin bir araç
-                    veya program varsa bize bildirebilirsin.
-                </p>
+            <p style="color:var(--muted);margin:12px 0 22px;">
+                Görüş, öneri ve proje fikirlerinizi bizimle paylaşabilirsiniz.
+            </p>
 
-                <a class="contactBtn" href="mailto:karayelyazilim@gmail.com">
-                    ✉️ E-posta Gönder
-                </a>
-            </div>
-
-
-            <div class="contactCard">
-                <h3>🚀 Karayel Yazılım 2026</h3>
-
-                <p>
-                    Modern, kullanışlı ve erişilebilir dijital
-                    uygulamalar geliştirmek için buradayız.
-                </p>
-
-                <a class="contactBtn" href="#anasayfa">
-                    ↑ Ana Sayfaya Dön
-                </a>
-            </div>
+            <a
+                href="mailto:karayelyazilim@gmail.com"
+                class="btn btn-primary"
+            >
+                E-posta Gönder
+            </a>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 </main>
-
 
 <!-- FOOTER -->
 
 <footer>
-
-    <div class="footerInner">
-
-        <div class="footerBrand">
-
-            <div class="logo">
-                <div class="logoIcon">K</div>
-
-                <div class="logoText">
-                    <strong>Karayel Yazılım</strong>
-                    <span>2026 DIGITAL</span>
-                </div>
-            </div>
-
-            <p>
-                Dijital araçlar, programlar ve modern yazılım
-                çözümleri için Karayel Yazılım.
-            </p>
-
-        </div>
-
-
-        <div class="footerCol">
-
-            <h4>Keşfet</h4>
-
-            <a href="#araclar">Ücretsiz Araçlar</a>
-            <a href="#programlar">Programlar</a>
-            <a href="#kategoriler">Kategoriler</a>
-
-        </div>
-
-
-        <div class="footerCol">
-
-            <h4>Popüler</h4>
-
-            <a href="#araclar">Not Defteri</a>
-            <a href="#araclar">Fotoğraf Editörü</a>
-            <a href="#araclar">QR Kod</a>
-
-        </div>
-
-
-        <div class="footerCol">
-
-            <h4>Karayel</h4>
-
-            <a href="#anasayfa">Ana Sayfa</a>
-            <a href="#iletisim">İletişim</a>
-            <a href="#programlar">Projeler</a>
-
-        </div>
-
-    </div>
-
-
-    <div class="copyright">
-        <span>© 2026 Karayel Yazılım. Tüm hakları saklıdır.</span>
-        <span>Made with ❤️ by Karayel Yazılım</span>
-    </div>
-
+    © 2026 <strong>Karayel Yazılım</strong> — Tüm hakları saklıdır.
 </footer>
 
+<!-- TOP BUTTON -->
 
-<div class="toast" id="toast"></div>
+<button class="top-btn" id="topBtn">↑</button>
 
+<!-- APP SCREEN -->
+
+<div id="appScreen">
+
+    <div class="app-screen-header">
+
+        <button class="back-btn" id="backBtn">
+            ← Geri
+        </button>
+
+        <strong id="appScreenTitle">
+            Karayel Yazılım
+        </strong>
+
+    </div>
+
+    <div class="app-screen-content">
+
+        <div style="font-size:70px;margin-bottom:20px;">
+            🚀
+        </div>
+
+        <h2 id="appScreenHeading">
+            Uygulama
+        </h2>
+
+        <p>
+            Bu uygulama Karayel Yazılım tarafından geliştiriliyor.
+            Çok yakında burada kullanıma sunulacak.
+        </p>
+
+        <br>
+
+        <button class="btn btn-primary" onclick="closeApp()">
+            ← Ana Sayfaya Dön
+        </button>
+
+    </div>
+
+</div>
 
 <script>
 
-/* MOBİL MENÜ */
+/* MENU */
 
-function toggleMenu(){
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
 
-    const menu = document.getElementById("mobileMenu");
+menuBtn.addEventListener("click",()=>{
+    navLinks.classList.toggle("open");
+});
 
-    if(menu.style.display === "block"){
-        menu.style.display = "none";
-    }else{
-        menu.style.display = "block";
-    }
-
-}
-
-function closeMenu(){
-
-    document.getElementById("mobileMenu").style.display = "none";
-
-}
-
-
-/* ARAMA */
-
-function searchApps(){
-
-    const input = document.getElementById("searchInput");
-    const query = input.value.toLowerCase().trim();
-
-    const cards = document.querySelectorAll(".appCard");
-
-    cards.forEach(card => {
-
-        const name = card.dataset.name || card.innerText;
-
-        if(name.toLowerCase().includes(query)){
-
-            card.style.display = "";
-
-        }else{
-
-            card.style.display = "none";
-
-        }
-
+document.querySelectorAll(".nav-links a").forEach(link=>{
+    link.addEventListener("click",()=>{
+        navLinks.classList.remove("open");
     });
+});
 
+
+/* THEME */
+
+const themeBtn = document.getElementById("themeBtn");
+
+if(localStorage.getItem("karayelTheme")==="light"){
+    document.body.classList.add("light");
 }
 
-
-/* KATEGORİ */
-
-function filterCategory(category){
-
-    const cards = document.querySelectorAll("#appGrid .appCard");
-
-    cards.forEach(card => {
-
-        if(category === "arac"){
-
-            card.style.display = "";
-
-            return;
-
-        }
-
-        if(card.dataset.category === category){
-
-            card.style.display = "";
-
-        }else{
-
-            card.style.display = "none";
-
-        }
-
-    });
-
-    document.getElementById("araclar").scrollIntoView({
-        behavior:"smooth"
-    });
-
+function updateThemeButton(){
+    themeBtn.textContent =
+        document.body.classList.contains("light")
+        ? "🌙 Tema"
+        : "☀️ Tema";
 }
 
+updateThemeButton();
 
-/* TÜMÜNÜ GÖSTER */
+themeBtn.addEventListener("click",()=>{
 
-function showAll(){
+    document.body.classList.toggle("light");
 
-    document.querySelectorAll("#appGrid .appCard").forEach(card => {
-
-        card.style.display = "";
-
-    });
-
-}
-
-
-/* BUTONLAR */
-
-function scrollToTools(){
-
-    document.getElementById("araclar").scrollIntoView({
-        behavior:"smooth"
-    });
-
-}
-
-function scrollToPrograms(){
-
-    document.getElementById("programlar").scrollIntoView({
-        behavior:"smooth"
-    });
-
-}
-
-function scrollToSearch(){
-
-    document.getElementById("arama").scrollIntoView({
-        behavior:"smooth"
-    });
-
-    setTimeout(() => {
-
-        document.getElementById("searchInput").focus();
-
-    },500);
-
-}
-
-
-/* UYGULAMA AÇMA */
-
-function openApp(name){
-
-    showToast(
-        name + " yakında burada çalıştırılabilir olacak."
+    localStorage.setItem(
+        "karayelTheme",
+        document.body.classList.contains("light")
+        ? "light"
+        : "dark"
     );
 
+    updateThemeButton();
+});
+
+
+/* APP SEARCH */
+
+const appSearch = document.getElementById("appSearch");
+const appCards = document.querySelectorAll(".app-card");
+
+appSearch.addEventListener("input",()=>{
+
+    const value = appSearch.value.toLowerCase().trim();
+
+    appCards.forEach(card=>{
+
+        const name = card.dataset.name.toLowerCase();
+
+        card.style.display =
+            name.includes(value)
+            ? ""
+            : "none";
+
+    });
+
+});
+
+
+/* APP SCREEN */
+
+const appScreen = document.getElementById("appScreen");
+const appScreenTitle = document.getElementById("appScreenTitle");
+const appScreenHeading = document.getElementById("appScreenHeading");
+
+appCards.forEach(card=>{
+
+    card.addEventListener("click",()=>{
+
+        const title = card.querySelector("h3").textContent;
+
+        appScreenTitle.textContent = title;
+        appScreenHeading.textContent = title;
+
+        appScreen.style.display = "block";
+        document.body.style.overflow = "hidden";
+
+    });
+
+});
+
+function closeApp(){
+
+    appScreen.style.display = "none";
+    document.body.style.overflow = "";
+
 }
 
-
-/* BİLDİRİM */
-
-let toastTimer;
-
-function showToast(message){
-
-    const toast = document.getElementById("toast");
-
-    toast.textContent = message;
-
-    toast.classList.add("show");
-
-    clearTimeout(toastTimer);
-
-    toastTimer = setTimeout(() => {
-
-        toast.classList.remove("show");
-
-    },3000);
-
-}
+document.getElementById("backBtn")
+.addEventListener("click",closeApp);
 
 
-/* ESC İLE MENÜ KAPAT */
+/* ESC */
 
-document.addEventListener("keydown",function(e){
+document.addEventListener("keydown",(e)=>{
 
-    if(e.key === "Escape"){
-
-        closeMenu();
-
+    if(e.key==="Escape" && appScreen.style.display==="block"){
+        closeApp();
     }
 
 });
 
 
-/* LOGOYA TIKLAYINCA ÜSTE */
+/* TOP BUTTON */
 
-document.querySelector(".logo").addEventListener("click",function(e){
+const topBtn = document.getElementById("topBtn");
 
-    e.preventDefault();
+window.addEventListener("scroll",()=>{
 
+    topBtn.style.display =
+        window.scrollY > 500
+        ? "block"
+        : "none";
+
+});
+
+topBtn.addEventListener("click",()=>{
     window.scrollTo({
         top:0,
         behavior:"smooth"
     });
+});
+
+
+/* KARAYEL AI */
+
+const chat = document.getElementById("chat");
+const aiForm = document.getElementById("aiForm");
+const aiInput = document.getElementById("aiInput");
+const clearChat = document.getElementById("clearChat");
+
+function addMessage(text,type){
+
+    const message = document.createElement("div");
+
+    message.className =
+        "message " + type;
+
+    const bubble = document.createElement("div");
+
+    bubble.className = "message-bubble";
+
+    bubble.textContent = text;
+
+    message.appendChild(bubble);
+
+    chat.appendChild(message);
+
+    chat.scrollTop = chat.scrollHeight;
+
+    return message;
+}
+
+
+function addTyping(){
+
+    const message = document.createElement("div");
+
+    message.className = "message ai";
+    message.id = "typingMessage";
+
+    message.innerHTML = `
+        <div class="message-bubble">
+            <div class="typing">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    `;
+
+    chat.appendChild(message);
+
+    chat.scrollTop = chat.scrollHeight;
+
+}
+
+
+function karayelAIReply(question){
+
+    const q = question.toLowerCase();
+
+    if(
+        q.includes("merhaba") ||
+        q.includes("selam") ||
+        q.includes("hey")
+    ){
+
+        return "Merhaba! 👋 Ben Karayel AI. Sana yazılım, web sitesi, uygulama fikirleri, kodlama ve birçok konuda yardımcı olabilirim.";
+
+    }
+
+    if(
+        q.includes("html") ||
+        q.includes("web sitesi") ||
+        q.includes("site yap")
+    ){
+
+        return "Tabii! 💻 HTML, CSS ve JavaScript kullanarak modern web siteleri hazırlayabilirim. Örneğin tek dosyalık index.html projeleri, mobil uyumlu tasarımlar, menüler, uygulama panelleri ve daha fazlasını oluşturabiliriz.";
+
+    }
+
+    if(
+        q.includes("uygulama") ||
+        q.includes("program")
+    ){
+
+        return "Harika bir fikir! 🚀 Karayel Yazılım için; fotoğraf editörü, Excel benzeri tablo programı, not defteri, video oynatıcı, PDF araçları, hesap makinesi ve yapay zekâ uygulamaları geliştirebiliriz.";
+
+    }
+
+    if(
+        q.includes("javascript") ||
+        q.includes("js")
+    ){
+
+        return "JavaScript öğrenmeye temel seviyeden başlayabiliriz. Değişkenler → koşullar → döngüler → fonksiyonlar → diziler → DOM → olaylar → API kullanımı şeklinde ilerleyebiliriz.";
+
+    }
+
+    if(
+        q.includes("karayel")
+    ){
+
+        return "Karayel Yazılım 2026'yı büyük bir dijital platforma dönüştürebiliriz. Web uygulamaları, mobil uygulamalar, Windows programları ve Karayel AI gibi projeleri aynı marka altında toplayabiliriz. 🚀";
+
+    }
+
+    if(
+        q.includes("4k") ||
+        q.includes("video")
+    ){
+
+        return "Evet! 🎬 Karayel Video Player gibi bir proje oluşturabiliriz. HTML5 video oynatma, tam ekran, ses kontrolü, altyazı, oynatma hızı, dosya seçme ve mobil uyumluluk gibi özellikler eklenebilir.";
+
+    }
+
+    if(
+        q.includes("fikir") ||
+        q.includes("öner")
+    ){
+
+        return "💡 Birkaç proje fikri: Karayel Video Player, Karayel PDF Araçları, Karayel Dosya Yöneticisi, Karayel AI, Karayel Fotoğraf Editörü, Karayel Hesap Makinesi ve Karayel Office.";
+
+    }
+
+    return "Bunu anladım. 🤖 Şu anda Karayel AI'ın web arayüzü aktif durumda. Gerçek yapay zekâ motoruna bağlandığında sorularını çok daha gelişmiş şekilde cevaplayabilir, kod üretebilir ve projeler oluşturabiliriz.";
+
+}
+
+
+aiForm.addEventListener("submit",(e)=>{
+
+    e.preventDefault();
+
+    const question = aiInput.value.trim();
+
+    if(!question) return;
+
+    addMessage(question,"user");
+
+    aiInput.value = "";
+
+    addTyping();
+
+    setTimeout(()=>{
+
+        const typing =
+            document.getElementById("typingMessage");
+
+        if(typing){
+            typing.remove();
+        }
+
+        addMessage(
+            karayelAIReply(question),
+            "ai"
+        );
+
+    },700);
+
+});
+
+
+/* QUICK PROMPTS */
+
+document.querySelectorAll(".quick-prompts button")
+.forEach(button=>{
+
+    button.addEventListener("click",()=>{
+
+        aiInput.value = button.dataset.prompt;
+
+        aiInput.focus();
+
+    });
+
+});
+
+
+/* CLEAR AI */
+
+clearChat.addEventListener("click",()=>{
+
+    chat.innerHTML = `
+        <div class="message ai">
+            <div class="message-bubble">
+                👋 Sohbet temizlendi.
+
+                Ben Karayel AI.
+                Sana nasıl yardımcı olabilirim?
+            </div>
+        </div>
+    `;
+
+});
+
+
+/* TEXTAREA AUTO SIZE */
+
+aiInput.addEventListener("input",()=>{
+
+    aiInput.style.height = "auto";
+
+    aiInput.style.height =
+        Math.min(aiInput.scrollHeight,130) + "px";
+
+});
+
+
+/* ENTER TO SEND */
+
+aiInput.addEventListener("keydown",(e)=>{
+
+    if(
+        e.key==="Enter" &&
+        !e.shiftKey &&
+        window.innerWidth > 600
+    ){
+
+        e.preventDefault();
+
+        aiForm.requestSubmit();
+
+    }
 
 });
 
 </script>
 
 </body>
-    </html>
+</html>
